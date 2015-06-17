@@ -116,7 +116,7 @@ function clerp(a,b,t)
 end
  
 AddPart=function(Text,Colour,Player,Function)
-if Colour==nil then Colour='Random' end
+if Colour==nil then Colour='White' end
 if not Player or type(Player) ~= "userdata" then return end
 local Adorn=workspace:FindFirstChild(Player.Name) and workspace[Player.Name]:FindFirstChild("Torso") and workspace[Player.Name].Torso:IsA("Part") and workspace[Player.Name].Torso.CFrame + Vector3.new(0,6,0) or CFrame.new(0,10,0)
 local f=Instance.new('Part',script)
@@ -356,10 +356,10 @@ NewCommand("Music","Lists music which you can play",6,{'m','music','song'},funct
             local function List(plr)
                 DestroyTablets(speaker)
         for i=1,#Assets do
-            AddPart(Assets[i].Name,'White',speaker,function()
+            AddPart(Assets[i].Name,'Hot pink',speaker,function()
                 DestroyTablets(plr)
-                AddPart('Name: '..Assets[i].Name,'White',speaker)
-                        AddPart('Id: '..Assets[i].AssetId,'White',speaker)
+                AddPart('Name: '..Assets[i].Name,'Random',speaker)
+                        AddPart('Id: '..Assets[i].AssetId,'Random',speaker)
                         AddPart('Publisher: '..Assets[i].Creator,'White',speaker)
                         AddPart('Play song','Lime green',speaker,function()
                     for i,v in pairs(script:GetChildren()) do
@@ -372,7 +372,7 @@ NewCommand("Music","Lists music which you can play",6,{'m','music','song'},funct
                             local sound=Instance.new('Sound',script);
                             sound.SoundId='rbxassetid://'..Assets[i].AssetId;
                             sound:play()
-                            AddPart('Stop song','Neon orange',speaker,function()
+                            AddPart('Stop song','Neon blue',speaker,function()
                         sound:Pause();
                         sound:Stop();
                                 sound:Destroy();
