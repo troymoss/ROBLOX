@@ -40,7 +40,7 @@ Core={
         Banned={};
         ScriptSettings={};
         Settings={
-                BetaKey="*";
+                BetaKey="*","?",#","@","$",":";
                 ScriptOwner=getfenv()["onwer"] or game.Players.gavinsharp100;
                 Debug=false;
         };
@@ -129,7 +129,7 @@ if Colour == 'Random' then
         else
         f.BrickColor=BrickColor.new(Colour)
 end
-f.Size=Vector3.new(0,1,0)
+f.Size=Vector3.new(1,0,0)
 f.CFrame = CFrame.new(Adorn.p)
 local sel=Instance.new('SelectionBox',f)
 sel.Adornee=f
@@ -151,7 +151,7 @@ txt=Instance.new('TextLabel',bbg)
 txt.Text=Text
 txt.BackgroundTransparency=1
 txt.Size = UDim2.new(1, 0, 0.5, 0)
-txt.FontSize='Size14'
+txt.FontSize='Size12'
 txt.TextColor3=f.BrickColor.Color
 txt.TextStrokeTransparency=.9
 spawn(function()
@@ -209,7 +209,7 @@ Spawn(function()
     local Num=1
     plr=nil
         game:GetService'RunService'.Heartbeat:connect(function()
-                Num=Num+0.0025
+                Num=Num+0.0015
 for i,v in pairs(game.Players:GetPlayers()) do
 for a,s in pairs(Core.Administators) do
 if v.Name==s.Name then
