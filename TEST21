@@ -1,13 +1,3 @@
---[[
-        HLC Script
-       
-        This script is not open source at all and using it under false jurisdiction may or may not result in
-        negative effects.
-       
-        Thanks
-        Gavinsharp100
-]]
- 
 --[[local _ENV = getfenv(1);
 _ENV.Backup = {
         print = print;
@@ -40,7 +30,7 @@ Core={
         Banned={};
         ScriptSettings={};
         Settings={
-                BetaKey={'$','&','?','+','@'};
+                BetaKey="!";
                 ScriptOwner=getfenv()["onwer"] or game.Players.gavinsharp100;
                 Debug=false;
         };
