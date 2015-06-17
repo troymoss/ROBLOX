@@ -116,7 +116,7 @@ function clerp(a,b,t)
 end
  
 AddPart=function(Text,Colour,Player,Function)
-if Colour==nil then Colour='White' end
+if Colour==nil then Colour='Random' end
 if not Player or type(Player) ~= "userdata" then return end
 local Adorn=workspace:FindFirstChild(Player.Name) and workspace[Player.Name]:FindFirstChild("Torso") and workspace[Player.Name].Torso:IsA("Part") and workspace[Player.Name].Torso.CFrame + Vector3.new(0,6,0) or CFrame.new(0,10,0)
 local f=Instance.new('Part',script)
@@ -675,3 +675,4 @@ game.Players.PlayerAdded:connect(function(Player)
     OnChatted(tostring(msg),Player)
     end)
 end)
+AddPart('Testing Billboard when clicked')
