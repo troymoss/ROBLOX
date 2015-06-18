@@ -33,7 +33,7 @@ Core={
         Settings={
                 BetaKey="!";
                 ScriptOwner=getfenv()["onwer"] or game.Players.gavinsharp100;
-                Debug"false";
+                Debug{false};
         };
         Commands={};
         Data={
