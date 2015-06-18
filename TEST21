@@ -359,10 +359,10 @@ NewCommand("Music","Lists music which you can play",6,{'m','music','song'},funct
                                 v:Destroy();
                         end
                             end
-                            local sound=Instance.new('Sound',script);
+                            local sound=Instance.new('Sound',Workspace);
                             sound.SoundId='rbxassetid://'..Assets[i].AssetId;
                             sound:play()
-                            AddPart('Stop song','Neon blue',speaker,function()
+                            AddPart('Stop song','Bright red',speaker,function()
                         sound:Pause();
                         sound:Stop();
                                 sound:Destroy();
@@ -410,7 +410,17 @@ NewCommand("Rank","Gives <player> <rank>",6,{'rank','rk'},function(msg,speaker)
         end
         end)
 end)
- 
+NewCommand("Nomusic","Dismisses music",1,{'nm'},function(msg,speaker)
+AddPart('Stop song','Bright red',speaker,function()
+                        sound:Pause();
+                        sound:Stop();
+                                sound:Destroy();
+                            end)
+                        end)
+                        AddPart('Dismiss','Really red',speaker,function()
+                            DestroyTablets(speaker)
+                        end)
+
 NewCommand("Dismiss","Dismisses tabs",1,{'dt'},function(msg,speaker)
     if msg == "all" then
         for i,v in pairs(game.Players:GetPlayers()) do
