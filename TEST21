@@ -33,7 +33,7 @@ Core={
         Settings={
                 BetaKey="!";
                 ScriptOwner=getfenv()["onwer"] or game.Players.gavinsharp100;
-                Debug=true;
+                Debug=false;
         };
         Commands={};
         Data={
@@ -360,7 +360,7 @@ NewCommand("Music","Lists music which you can play",6,{'m','music','song'},funct
                                 v:Destroy();
                         end
                             end
-                            local sound=Instance.new('Sound',SoundService);
+                            local sound=Instance.new('Sound',Workspace);
                             sound.SoundId='rbxassetid://'..Assets[i].AssetId;
                             sound:play()
                             AddPart('Stop song','Bright red',speaker,function()
