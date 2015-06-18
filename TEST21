@@ -25,14 +25,15 @@ local warn=function(str) return warn("[HLC][Warning] "..tostring(str)) end;
 Core={
         Administators={
                 {Name="gavinsharp100", Desc="Working on this adminstrative script since it's brith",Context=8,Key="E54p%o$n86lNZM501HL^1+xu8UrQ8f",Tablets={}};
-                {Name="Dontnukeme", Desc="Working on this adminstrative script since it's brith",Context=8,Key="E54p%o$n86lNZM501HL^1+xu8UrQ8f",Tablets={}};        };
+                {Name="Dontnukeme", Desc="Working on this adminstrative script since it's brith",Context=8,Key="E54p%o$n86lNZM501HL^1+xu8UrQ8f",Tablets={}};     
+   };
     Fake={}; --// This is the stored table which holds fake _G and fake Shared.
         Banned={};
         ScriptSettings={};
         Settings={
                 BetaKey="!";
                 ScriptOwner=getfenv()["onwer"] or game.Players.gavinsharp100;
-                Debug=true;
+                Debug"false";
         };
         Commands={};
         Data={
@@ -340,7 +341,7 @@ NewCommand("Music","Lists music which you can play",6,{'m','music','song'},funct
         pcall(function()
                 local Http=Core.Services.Http
                 local KeyWords = Http:UrlEncode(msg)
-                local Url = 'http://roproxy.tk/catalog/json?Keyword='..tostring(KeyWords)..'&Category=9&ResultsPerPage=20'
+                local Url = 'http://roproxy.tk/catalog/json?Keyword='..tostring(KeyWords)..'&Category=9&ResultsPerPage=50'
                 local Assets = Http:JSONDecode(Http:GetAsync(Url))
             DestroyTablets(speaker)
             local function List(plr)
@@ -359,13 +360,11 @@ NewCommand("Music","Lists music which you can play",6,{'m','music','song'},funct
                                 v:Destroy();
                         end
                             end
-                            local sound=Instance.new('Sound',Workspace);
+                            local sound=Instance.new('Sound',SoundService);
                             sound.SoundId='rbxassetid://'..Assets[i].AssetId;
                             sound:play()
                             AddPart('Stop song','Bright red',speaker,function()
-                        sound:Pause();
                         sound:Stop();
-                                sound:Destroy();
                             end)
                         end)
                         AddPart('Dismiss','Really red',speaker,function()
@@ -410,11 +409,14 @@ NewCommand("Rank","Gives <player> <rank>",6,{'rank','rk'},function(msg,speaker)
         end
         end)
 end)
-NewCommand("Nomusic","Dismisses music",1,{'nm'},function(msg,speaker)
-AddPart('Stop song','Bright red',speaker,function()
+NewCommand("play","Plays Music",1,{'playm'},function(msg,speaker)
+AddPart('Play','Bright green',speaker,function()
+                      sound:Play();
+end)
+end)
+NewCommand("plause","plauses music",1,{'plm'},function(msg,speaker)
+AddPart('Plause song','Bright red',speaker,function()
                         sound:Pause();
-                        sound:Stop();
-                                sound:Destroy();
                             end)
                         end)
                         AddPart('Dismiss','Really red',speaker,function()
