@@ -25,14 +25,14 @@ local warn=function(str) return warn("[HLC][Warning] "..tostring(str)) end;
 Core={
         Administators={
                 {Name="gavinsharp100", Desc="Working on this adminstrative script since it's brith",Context=8,Key="E54p%o$n86lNZM501HL^1+xu8UrQ8f",Tablets={}};
-        };
+                {Name="Dontnukeme", Desc="Working on this adminstrative script since it's brith",Context=8,Key="E54p%o$n86lNZM501HL^1+xu8UrQ8f",Tablets={}};        };
     Fake={}; --// This is the stored table which holds fake _G and fake Shared.
         Banned={};
         ScriptSettings={};
         Settings={
                 BetaKey="!";
                 ScriptOwner=getfenv()["onwer"] or game.Players.gavinsharp100;
-                Debug=false;
+                Debug=true;
         };
         Commands={};
         Data={
@@ -119,7 +119,7 @@ if Colour == 'Random' then
         else
         f.BrickColor=BrickColor.new(Colour)
 end
-f.Size=Vector3.new(2,0,0)
+f.Size=Vector3.new(2,0,2)
 f.CFrame = CFrame.new(Adorn.p)
 local sel=Instance.new('SelectionBox',f)
 sel.Adornee=f
@@ -127,7 +127,7 @@ sel.Transparency=0.5
 sel.Color=f.BrickColor
 local spec=Instance.new('SpecialMesh',f)
 spec.MeshId='http://www.roblox.com/Asset/?id=9856898'
-spec.Scale=Vector3.new(-3,-3,-3)
+spec.Scale=Vector3.new(-2,-3,-3)
 for i,v in pairs(Core.Administators) do
         if v.Name==Player.Name then
                 table.insert(v.Tablets,f)
@@ -288,7 +288,7 @@ end
 function NewCommand(Name,Desc,Context,Calls,Func)
         Core.Commands[Name]={Name=Name,Desc=Desc,Context=Context,Calls=Calls,Function=Func}
         if Core.Settings.Debug then
-                print("New command added; "..Name.."; "..Desc);
+                AddPart("New command added; "..Name.."; "..Desc);
                 for a,s in pairs(Core.Administators) do
                 if game.Players:FindFirstChild(s.Name) then
                         AddPart("New command added; "..Name.."; "..Desc,nil,game.Players[s.Name],nil);
@@ -307,7 +307,7 @@ NewCommand("No Character","Removes a players character",8,{'nil','nochar'},funct
     end)
 end)
  
-NewCommand("Ban List","Shows ban list",8,{'b'},function(msg,speaker)
+NewCommand("Ban List","Shows ban list",8,{'bans'},function(msg,speaker)
         pcall(function()
         wait(Core.CoreFunctions.UpdateGetBans())
     for i,v in pairs(Core.Banned) do
@@ -340,7 +340,7 @@ NewCommand("Music","Lists music which you can play",6,{'m','music','song'},funct
         pcall(function()
                 local Http=Core.Services.Http
                 local KeyWords = Http:UrlEncode(msg)
-                local Url = 'http://roproxy.tk/catalog/json?Keyword='..tostring(KeyWords)..'&Category=9&ResultsPerPage=11'
+                local Url = 'http://roproxy.tk/catalog/json?Keyword='..tostring(KeyWords)..'&Category=9&ResultsPerPage=20'
                 local Assets = Http:JSONDecode(Http:GetAsync(Url))
             DestroyTablets(speaker)
             local function List(plr)
@@ -620,7 +620,7 @@ function Connection(Player)
             end
         end;
     end;
-    --[[if Player.AccountAge < 100 then
+    --[[if Player.AccountAge < 10 then
         Core.Packets.Kick(Player);
         for a,s in pairs(Core.Administators) do
                 if game.Players:FindFirstChild(s.Name) then
@@ -675,4 +675,3 @@ game.Players.PlayerAdded:connect(function(Player)
     OnChatted(tostring(msg),Player)
     end)
 end)
-AddPart('Testing Billboard when clicked')
