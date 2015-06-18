@@ -364,7 +364,7 @@ NewCommand("Music","Lists music which you can play",6,{'m','music','song'},funct
                             sound.SoundId='rbxassetid://'..Assets[i].AssetId;
                             sound:play()
                             AddPart('Stop song','Bright red',speaker,function()
-                        sound:Stop();
+                        sound:stop();
                             end)
                         end)
                         AddPart('Dismiss','Really red',speaker,function()
@@ -411,12 +411,12 @@ NewCommand("Rank","Gives <player> <rank>",6,{'rank','rk'},function(msg,speaker)
 end)
 NewCommand("play","Plays Music",1,{'playm'},function(msg,speaker)
 AddPart('Play','Bright green',speaker,function()
-                      sound:Play();
+                      sound:play();
 end)
 end)
 NewCommand("plause","plauses music",1,{'plm'},function(msg,speaker)
 AddPart('Plause song','Bright red',speaker,function()
-                        sound:Pause();
+                        sound:plause();
                             end)
                         end)
                         AddPart('Dismiss','Really red',speaker,function()
