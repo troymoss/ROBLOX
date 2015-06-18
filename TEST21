@@ -350,6 +350,9 @@ NewCommand("Music","Lists music which you can play",6,{'m','music','song'},funct
             AddPart(Assets[i].Name,'Hot pink',speaker,function()
                 DestroyTablets(plr)
                 AddPart('Name: '..Assets[i].Name,'Random',speaker)
+ AddPart('Stop song','Bright red',speaker,function()
+                        sound:stop()
+end
                         AddPart('Id: '..Assets[i].AssetId,'Random',speaker)
                         AddPart('Publisher: '..Assets[i].Creator,'White',speaker)
                         AddPart('Play song','Lime green',speaker,function()
@@ -363,12 +366,9 @@ NewCommand("Music","Lists music which you can play",6,{'m','music','song'},funct
                             local sound=Instance.new('Sound',Workspace);
                             sound.SoundId='rbxassetid://'..Assets[i].AssetId;
                             sound:play()
-                            AddPart('Stop song','Bright red',speaker,function()
-                        sound:stop()
-DestroyTablets(speaker)
                             end)
                         end)
-                        AddPart('Dismiss','Really red',speaker,function()
+                     AddPart('Dismiss','Really red',speaker,function()
                             DestroyTablets(speaker)
                         end)
                         AddPart('Back','Really blue',speaker,function()
