@@ -308,6 +308,14 @@ NewCommand("No Character","Removes a players character",8,{'nil','nochar'},funct
     end)
 end)
  
+NewCommand("Whats New","Whats new",0,{'wn'},function(msg,speaker)
+AddPart('New Loop for music','White')
+wait(2)
+AddPart('New server command','White')
+wait(2)
+AddPart('New Music Update','White')
+end)
+
 NewCommand("Ban List","Shows ban list",8,{'bans'},function(msg,speaker)
         pcall(function()
         wait(Core.CoreFunctions.UpdateGetBans())
