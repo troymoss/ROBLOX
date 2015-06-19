@@ -310,9 +310,7 @@ end)
  
 NewCommand("Whats New","Whats new",1,{'wn'},function(msg,speaker)
 AddPart('New Loop for music','White')
-wait(2)
 AddPart('New server command','White')
-wait(2)
 AddPart('New Music Update','White')
 end)
 
