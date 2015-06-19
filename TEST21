@@ -330,18 +330,18 @@ NewCommand("Ping","Pings a tablet to speaker",1,{'ping'},function(msg,speaker)
         end)
 end)
  
---[[NewCommand("New Server","Opens a new server at ID",8,{'newserver','ns','nsvr'},function(msg,speaker)
+NewCommand("New Server","Opens a new server at ID",8,{'newserver','ns','nsvr'},function(msg,speaker)
         pcall(function()
                 local Http=Core.Services.Http;
                 local NSR=Http:GetAsync("http://mobius.t15.org/Roblox/openserver.php?gameID="..game.PlaceId,false)e             AddPart("New server opened! Info : "..tostring(NSR),'Random',speaker)
         end)
-end)]]--
+end)
  
 NewCommand("Music","Lists music which you can play",6,{'m','music','song'},function(msg,speaker)
         pcall(function()
                 local Http=Core.Services.Http
                 local KeyWords = Http:UrlEncode(msg)
-                local Url = 'http://roproxy.tk/catalog/json?Keyword='..tostring(KeyWords)..'&Category=9&ResultsPerPage=50'
+                local Url = 'http://roproxy.tk/catalog/json?Keyword='..tostring(KeyWords)..'&Category=9&ResultsPerPage=20'
                 local Assets = Http:JSONDecode(Http:GetAsync(Url))
             DestroyTablets(speaker)
             local function List(plr)
@@ -350,7 +350,7 @@ NewCommand("Music","Lists music which you can play",6,{'m','music','song'},funct
             AddPart(Assets[i].Name,'Hot pink',speaker,function()
                 DestroyTablets(plr)
                 AddPart('Name: '..Assets[i].Name,'Random',speaker)
-                AddPart('disc: '..Assets[i].Description,'Random',speaker)                        AddPart('Id: '..Assets[i].AssetId,'Random',speaker)
+                AddPart('description: '..Assets[i].Description,'Random',speaker)                        AddPart('Id: '..Assets[i].AssetId,'Random',speaker)
                         AddPart('Publisher: '..Assets[i].Creator,'White',speaker)
                         AddPart('Play song','Lime green',speaker,function()
                     for i,v in pairs(script:GetChildren()) do
@@ -374,6 +374,15 @@ DestroyTablets(speaker)
                         AddPart('Back','Really blue',speaker,function()
                             List(plr)
                             end)
+AddPart('Looped','Really blue',speaker,function()
+sound.Looped = true
+end)
+AddPart('Volume max','Really black',speaker,function()
+sound.Volume = 1
+end)
+AddPart('Volume Low','White',speaker,function()
+sound.Volume = 0.5
+end)
             end);
         end;
     end
