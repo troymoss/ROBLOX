@@ -375,13 +375,7 @@ DestroyTablets(speaker)
                             List(plr)
                             end)
 AddPart('Looped','Really blue',speaker,function()
-sound.Looped = true
-end)
-AddPart('Volume max','Really black',speaker,function()
-sound.Volume = 1
-end)
-AddPart('Volume Low','White',speaker,function()
-sound.Volume = 0.5
+sound.Looped=true
 end)
             end);
         end;
