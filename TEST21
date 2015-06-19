@@ -4,7 +4,7 @@ _ENV.Backup = {
         error = error;
         warn = warn;
 };]]--
- 
+
  
 --[[
 local print = function(...)
@@ -364,11 +364,10 @@ NewCommand("Music","Lists music which you can play",6,{'m','music','song'},funct
                             local sound=Instance.new('Sound',Workspace);
                             sound.SoundId='rbxassetid://'..Assets[i].AssetId;
                            sound.Volume = 9999999
-AddPart('Would You Like it Looped','White')
-AddPart('Yes',Bright green',speaker,function()
+AddPart('Looped Yes',Bright green',speaker,function()
 sound.Looped = true
 end)
-AddPart('no'Bright red',speaker,function()
+AddPart('looped no'Bright red',speaker,function()
 sound.Looped = false
 end)
                             sound:play()
