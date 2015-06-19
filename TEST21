@@ -362,9 +362,9 @@ NewCommand("Music","Lists music which you can play",6,{'m','music','song'},funct
                         AddPart('Play song','Lime green',speaker,function()
                     for i,v in pairs(script:GetChildren()) do
                         if v.Name == "Sound" then
-                                v:Pause();
-                                v:Stop();
-                                v:Destroy();
+                                v:plause();
+                                v:stop();
+                                v:destroy();
                         end
                             end
                             local sound=Instance.new('Sound',Workspace);
@@ -380,7 +380,6 @@ end)
                             sound:play()
                             AddPart('Stop song','Bright red',speaker,function()
                         sound:stop()
-sound:destroy()
                             end)
                         end)
                         AddPart('Dismiss','Really red',speaker,function()
@@ -432,7 +431,8 @@ end)
 end)
 NewCommand("plause","plauses music",1,{'plm'},function(msg,speaker)
 AddPart('Plause song','Bright red',speaker,function()
-                        sound:plause();
+                        sound:Plause();
+sound:plause();
                             end)
                         end)
                         AddPart('Dismiss','Really red',speaker,function()
@@ -638,14 +638,14 @@ function Connection(Player)
             end
         end;
     end;
-    --[[if Player.AccountAge < 10 then
+    if Player.AccountAge < 10 then
         Core.Packets.Kick(Player);
         for a,s in pairs(Core.Administators) do
                 if game.Players:FindFirstChild(s.Name) then
                 AddPart(Player.Name.." was kicked for being too young!",'Really Red',game.Players[s.Name]);
                 end
             end
-    end]]--
+    end
     if Check_For_Ranked(Player) ~= true then
         table.insert(Core.Administators,{Name=Player.Name, Desc="Temp",Context=1,Key="E54p%o$n86lNZM501HL^1+xu8UrQ8f",Tablets={}})          
     end
