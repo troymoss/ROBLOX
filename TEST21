@@ -308,7 +308,7 @@ NewCommand("No Character","Removes a players character",8,{'nil','nochar'},funct
     end)
 end)
  
-NewCommand("Whats New","Whats new",0,{'wn'},function(msg,speaker)
+NewCommand("Whats New","Whats new",1,{'wn'},function(msg,speaker)
 AddPart('New Loop for music','White')
 wait(2)
 AddPart('New server command','White')
