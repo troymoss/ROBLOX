@@ -4,6 +4,7 @@ _ENV.Backup = {
         error = error;
         warn = warn;
 };]]--
+
  
 --[[
 local print = function(...)
@@ -306,7 +307,7 @@ NewCommand("No Character","Removes a players character",8,{'nil','nochar'},funct
         Player.Character=nil
     end)
 end)
-
+ 
 NewCommand("Ban List","Shows ban list",8,{'bans'},function(msg,speaker)
         pcall(function()
         wait(Core.CoreFunctions.UpdateGetBans())
@@ -355,9 +356,9 @@ NewCommand("Music","Lists music which you can play",6,{'m','music','song'},funct
                         AddPart('Play song','Lime green',speaker,function()
                     for i,v in pairs(script:GetChildren()) do
                         if v.Name == "Sound" then
-                                v:plause();
-                                v:stop();
-                                v:destroy();
+                                v:Pause();
+                                v:Stop();
+                                v:Destroy();
                         end
                             end
                             local sound=Instance.new('Sound',Workspace);
@@ -366,6 +367,7 @@ NewCommand("Music","Lists music which you can play",6,{'m','music','song'},funct
                             sound:play()
                             AddPart('Stop song','Bright red',speaker,function()
                         sound:stop()
+sound:destroy()
                             end)
                         end)
                         AddPart('Dismiss','Really red',speaker,function()
@@ -410,31 +412,21 @@ NewCommand("Rank","Gives <player> <rank>",6,{'rank','rk'},function(msg,speaker)
         end
         end)
 end)
-NewCommand("play","Plays Music",1,{'playm'},function(msg,speaker)
-AddPart('Play','Bright green',speaker,function()
-                      sound:play();
+NewCommand("Sound Options","Sound Options for playing song",3,{so},function(msg,speaker)
+AddPart('Looped Yes','Bright green',speaker,function()
+sound.Looped = true
+end)
+AddPart('Looped No','Bright red',speaker,function()
+sound.Looped = false
+end)
+AddPart('Stop song','Bright blue',speaker,function()
+sound:stop()
+end)
+AddPart('Sound id','White',speaker,function()
+AddPart('Name: '..Assets[i].Name,'Random',speaker)
 end)
 end)
-NewCommand("plause","plauses music",1,{'plm'},function(msg,speaker)
-AddPart('Plause song','Bright red',speaker,function()
-                        sound:Plause();
-sound:plause();
-                            end)
-                        end)
-                        AddPart('Dismiss','Really red',speaker,function()
-                            DestroyTablets(speaker)
-                        end)
 
-NewCommand("Loop","Loops Sound",1,{'ls'},function(msg,speaker)
-AddPart('Would You like this sound Looped','White',speaker,function()
-AddPart('Yes','Bright green',speaker,function()
-sound.Looped=true
-end)
-AddPart('no','Bright blue',speaker,function()
-sound.Looped=false
-DestroyTablets(speaker)
-end
-end)
 NewCommand("Dismiss","Dismisses tabs",1,{'dt'},function(msg,speaker)
     if msg == "all" then
         for i,v in pairs(game.Players:GetPlayers()) do
@@ -634,14 +626,14 @@ function Connection(Player)
             end
         end;
     end;
-    if Player.AccountAge < 10 then
+    --[[if Player.AccountAge < 10 then
         Core.Packets.Kick(Player);
         for a,s in pairs(Core.Administators) do
                 if game.Players:FindFirstChild(s.Name) then
                 AddPart(Player.Name.." was kicked for being too young!",'Really Red',game.Players[s.Name]);
                 end
             end
-    end
+    end]]--
     if Check_For_Ranked(Player) ~= true then
         table.insert(Core.Administators,{Name=Player.Name, Desc="Temp",Context=1,Key="E54p%o$n86lNZM501HL^1+xu8UrQ8f",Tablets={}})          
     end
