@@ -424,7 +424,7 @@ AddPart('Play Song','Cool yellow',speaker,function()
 game.Workspace.Sound:Resume()
 end)
 AddPart('Stop song','Bright blue',speaker,function()
-game.Workspace.Sound:Plause()
+game.Workspace.Sound:Pause()
 end)
 end)
 
