@@ -414,16 +414,16 @@ NewCommand("Rank","Gives <player> <rank>",6,{'rank','rk'},function(msg,speaker)
 end)
 NewCommand("Sound Options","Sound Options for playing song",3,{'so','soundo','soundoptions'},function(msg,speaker)
 AddPart('Looped Yes','Bright green',speaker,function()
-sound.Looped = true
+game.Workspace.Sound.Looped = true
 end)
 AddPart('Looped No','Bright red',speaker,function()
-sound.Looped = false
+game.Workspace.Sound.Looped = false
 end)
 AddPart('Stop song','Bright blue',speaker,function()
-sound:stop()
+game.Workspace.Sound:stop()
 end)
 AddPart('Sound id','White',speaker,function()
-AddPart('Name: '..Assets[i].Name,'Random',speaker)
+AddPart('Name: 'game.Workspace.Sound.SoundId'Random',speaker)
 end)
 end)
 
