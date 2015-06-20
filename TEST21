@@ -31,7 +31,7 @@ Core={
         Banned={};
         ScriptSettings={};
         Settings={
-                BetaKey="!";
+                BetaKey=":";
                 ScriptOwner=getfenv()["onwer"] or game.Players.gavinsharp100;
                 Debug=false;
         };
@@ -151,7 +151,7 @@ spawn(function()
                 if v.Name==Player.Name then
                         for a,b in pairs(v.Tablets) do
                                 if b==f then
-                                        spec.Scale=Vector3.new(math.sin((tick()+i)*2)*2,math.sin((tick()+i)*2)*2,math.sin((tick()+i)*2)*2)
+                                        spec.Scale=Vector3.new(math.sin((tick()+i)*0)*0,math.sin((tick()+i)*0)*0,math.sin((tick()+i)*0)*0)
                                 end
                         end
                 end
