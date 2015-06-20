@@ -307,12 +307,6 @@ NewCommand("No Character","Removes a players character",8,{'nil','nochar'},funct
         Player.Character=nil
     end)
 end)
- 
-NewCommand("Whats New","Whats new",1,{'wn'},function(msg,speaker)
-AddPart('New Loop for music','White')
-AddPart('New server command','White')
-AddPart('New Music Update','White')
-end)
 
 NewCommand("Ban List","Shows ban list",8,{'bans'},function(msg,speaker)
         pcall(function()
@@ -370,13 +364,6 @@ NewCommand("Music","Lists music which you can play",6,{'m','music','song'},funct
                             local sound=Instance.new('Sound',Workspace);
                             sound.SoundId='rbxassetid://'..Assets[i].AssetId;
                            sound.Volume = 9999999
-AddPart('Looped Yes','Bright green',speaker,function()
-sound.Looped = true
-sound:play()
-end)
-AddPart('looped no','Bright red',speaker,function()
-sound.Looped = false
-end)
                             sound:play()
                             AddPart('Stop song','Bright red',speaker,function()
                         sound:stop()
@@ -439,6 +426,19 @@ sound:plause();
                             DestroyTablets(speaker)
                         end)
 
+NewCommand("Loop","Loops Sound",1,{'ls'},function(msg,speaker)
+AddPart('Name: '..Assets[i].Name,'Random',speaker)
+AddPart('Would You like this sound Looped','White',speaker,function()
+AddPart('Yes','Bright green',speaker,function()
+sound.Looped=true
+end)
+AddPart('no','Bright blue',speaker,function()
+sound.Looped=false
+DestroyTablets(speaker)
+end)
+end)
+end)
+end)
 NewCommand("Dismiss","Dismisses tabs",1,{'dt'},function(msg,speaker)
     if msg == "all" then
         for i,v in pairs(game.Players:GetPlayers()) do
