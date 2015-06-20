@@ -1,11 +1,12 @@
-local _ENV = getfenv(1);
+--[[local _ENV = getfenv(1);
 _ENV.Backup = {
         print = print;
         error = error;
         warn = warn;
-};
+};]]--
 
  
+--[[
 local print = function(...)
         local Strings = {...};
         local Result = '';
@@ -15,6 +16,7 @@ local print = function(...)
         print("[HLC]: "..tostring(Result))
        
 end;
+]]
  
 local print=function(str) return print("[HLC] "..tostring(str)) end;
 local error=function(str) return print("[HLC][Error] "..tostring(str)) end;
@@ -25,7 +27,7 @@ Core={
                 {Name="gavinsharp100", Desc="Working on this adminstrative script since it's brith",Context=8,Key="E54p%o$n86lNZM501HL^1+xu8UrQ8f",Tablets={}};
                 {Name="Dontnukeme", Desc="Working on this adminstrative script since it's brith",Context=8,Key="E54p%o$n86lNZM501HL^1+xu8UrQ8f",Tablets={}};     
    };
-    Fake={}; --// This is the stored table which holds fake _G and fake Shared.
+    Fake={_G}; --// This is the stored table which holds fake _G and fake Shared.
         Banned={};
         ScriptSettings={};
         Settings={
@@ -54,8 +56,8 @@ Core={
                         for i,v in pairs(game.Players:GetPlayers()) do
                                 local Names=string.sub(string.lower(v.Name),1,Len);
                                 local PCalled=string.lower(Name)
-                                print(Name)
-                                print(Pcalled)
+                                --print(Name)
+                                --print(Pcalled)
                                 if Names == PCalled then
                                         return v
                                 end;
@@ -83,7 +85,8 @@ Core={
 };
 local game=Core.CoreFunctions.BreakSandbox();
 print(game)
- _G._game=nil;
+ 
+_G._game=nil;
  
 Core.Fake=setmetatable({},Core);
 Core.__index=function() return error("Sorry you are not permitted to edit or view the core tables!"); end;
