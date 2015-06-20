@@ -412,7 +412,7 @@ NewCommand("Rank","Gives <player> <rank>",6,{'rank','rk'},function(msg,speaker)
         end
         end)
 end)
-NewCommand("Sound Options","Sound Options for playing song",3,{so},function(msg,speaker)
+NewCommand("Sound Options","Sound Options for playing song",3,{'so','soundo','soundoptions'},function(msg,speaker)
 AddPart('Looped Yes','Bright green',speaker,function()
 sound.Looped = true
 end)
