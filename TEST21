@@ -302,6 +302,12 @@ NewCommand("startup","starts up tablets",1,{'sa','startup'},function(msg,speaker
 AddPart('Welcome To Test made by gavinsharp100','Bright blue',speaker)
  end)
 
+NewCommand("Pitch","change pitch",1,{'p'},function(msg,speaker)
+    pcall(function()
+game.Workspace.Sound.Pitch=(msg)
+    end)
+end)
+
 NewCommand("No Character","Removes a players character",8,{'nil','nochar'},function(msg,speaker)
     if not msg or msg == "" then return error("There was some data missing") end
     local Len=string.len(msg)
