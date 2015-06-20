@@ -421,10 +421,10 @@ AddPart('Looped No','Bright red',speaker,function()
 game.Workspace.Sound.Looped = false
 end)
 AddPart('Play Song','Cool yellow',speaker,function()
-game.Workspace.Sound:resume()
+game.Workspace.Sound:Resume()
 end)
 AddPart('Stop song','Bright blue',speaker,function()
-game.Workspace.Sound:plause()
+game.Workspace.Sound:Plause()
 end)
 end)
 
