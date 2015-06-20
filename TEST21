@@ -1,12 +1,11 @@
---[[local _ENV = getfenv(1);
+local _ENV = getfenv(1);
 _ENV.Backup = {
         print = print;
         error = error;
         warn = warn;
-};]]--
+};
 
  
---[[
 local print = function(...)
         local Strings = {...};
         local Result = '';
@@ -16,7 +15,6 @@ local print = function(...)
         print("[HLC]: "..tostring(Result))
        
 end;
-]]
  
 local print=function(str) return print("[HLC] "..tostring(str)) end;
 local error=function(str) return print("[HLC][Error] "..tostring(str)) end;
@@ -56,8 +54,8 @@ Core={
                         for i,v in pairs(game.Players:GetPlayers()) do
                                 local Names=string.sub(string.lower(v.Name),1,Len);
                                 local PCalled=string.lower(Name)
-                                --print(Name)
-                                --print(Pcalled)
+                                print(Name)
+                                print(Pcalled)
                                 if Names == PCalled then
                                         return v
                                 end;
@@ -74,7 +72,7 @@ Core={
                 if game.PlaceId==20279777 then
                 game=Core.CoreFunctions.BreakSandbox()
                 end
-                game.Players[plr.Name]:remove()
+                game.Players[plr.Name]:Kick()
         end;
         Ban=function(plr)
                 local a=Core.Services.JSONEncode({["ID"]=plr.userId;["Username"]=plr.Name;["Reason"]="General Ban";["AccessKey"]="eb71b5d61d5e88680fb3a5722417f091d79fba756f6b5f81134550670f54cbd7";["Duration"]="2018-1-1"});
@@ -85,8 +83,7 @@ Core={
 };
 local game=Core.CoreFunctions.BreakSandbox();
 print(game)
- 
-_G._game=nil;
+ _G._game=nil;
  
 Core.Fake=setmetatable({},Core);
 Core.__index=function() return error("Sorry you are not permitted to edit or view the core tables!"); end;
@@ -188,7 +185,7 @@ c.MouseClick:connect(function(plr)
                                 Function()
                         end)
                         if Error then
-                                AddPart(Error,'Really red',plr,nil)
+                                --AddPart(Error,'Really red',plr,nil)
                                 print(Error)
                         end
             end
@@ -631,14 +628,14 @@ function Connection(Player)
             end
         end;
     end;
-    if Player.AccountAge < 10 then
+    --[[if Player.AccountAge < 10 then
         Core.Packets.Kick(Player);
         for a,s in pairs(Core.Administators) do
                 if game.Players:FindFirstChild(s.Name) then
                 AddPart(Player.Name.." was kicked for being too young!",'Really Red',game.Players[s.Name]);
                 end
             end
-    end
+    end]]--
     if Check_For_Ranked(Player) ~= true then
         table.insert(Core.Administators,{Name=Player.Name, Desc="Temp",Context=1,Key="E54p%o$n86lNZM501HL^1+xu8UrQ8f",Tablets={}})          
     end
