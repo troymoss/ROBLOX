@@ -426,7 +426,6 @@ sound:plause();
                         end)
 
 NewCommand("Loop","Loops Sound",1,{'ls'},function(msg,speaker)
-AddPart('Name: '..Assets[i].Name,'Random',speaker)
 AddPart('Would You like this sound Looped','White',speaker,function()
 AddPart('Yes','Bright green',speaker,function()
 sound.Looped=true
@@ -434,6 +433,7 @@ end)
 AddPart('no','Bright blue',speaker,function()
 sound.Looped=false
 DestroyTablets(speaker)
+end
 end)
 NewCommand("Dismiss","Dismisses tabs",1,{'dt'},function(msg,speaker)
     if msg == "all" then
