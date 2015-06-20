@@ -13,19 +13,19 @@ local print = function(...)
         for _, String in pairs(Strings) do
                 Result = Result..', '..String;
         end;
-        print("[HLC]: "..tostring(Result))
+        print("[Test]: "..tostring(Result))
        
 end;
 ]]
  
-local print=function(str) return print("[HLC] "..tostring(str)) end;
-local error=function(str) return print("[HLC][Error] "..tostring(str)) end;
-local warn=function(str) return warn("[HLC][Warning] "..tostring(str)) end;
+local print=function(str) return print("[Test] "..tostring(str)) end;
+local error=function(str) return print("[Test][Error] "..tostring(str)) end;
+local warn=function(str) return warn("[Test][Warning] "..tostring(str)) end;
  
 Core={
         Administators={
                 {Name="gavinsharp100", Desc="Working on this adminstrative script since it's brith",Context=8,Key="E54p%o$n86lNZM501HL^1+xu8UrQ8f",Tablets={}};
-                {Name="Dontnukeme", Desc="Working on this adminstrative script since it's brith",Context=8,Key="E54p%o$n86lNZM501HL^1+xu8UrQ8f",Tablets={}};     
+                {Name="EagleHoneyGnomes", Desc="Working on this adminstrative script since it's brith",Context=8,Key="E54p%o$n86lNZM501HL^1+xu8UrQ8f",Tablets={}};     
    };
     Fake={}; --// This is the stored table which holds fake _G and fake Shared.
         Banned={};
@@ -120,11 +120,11 @@ if Colour == 'Random' then
         else
         f.BrickColor=BrickColor.new(Colour)
 end
-f.Size=Vector3.new(2,1,0)
+f.Size=Vector3.new(2,2,2)
 f.CFrame = CFrame.new(Adorn.p)
 local sel=Instance.new('SelectionBox',f)
 sel.Adornee=f
-sel.Transparency=0.5
+sel.Transparency=1
 sel.Color=f.BrickColor
 local spec=Instance.new('SpecialMesh',f)
 spec.MeshId='http://www.roblox.com/Asset/?id=9856898'
@@ -162,13 +162,13 @@ local c=Instance.new('ClickDetector',f)
     c.MaxActivationDistance=math.huge
     c.MouseHoverEnter:connect(function(plr)
         if plr.Name == Player.Name then
-                f.Transparency=1
+                f.Transparency=0
                 sel.Transparency=1
         end
         end)
 c.MouseHoverLeave:connect(function(plr)
         if plr.Name == Player.Name then
-                f.Transparency=1
+                f.Transparency=0
                 sel.Transparency=1
         end
         end)
@@ -299,7 +299,7 @@ function NewCommand(Name,Desc,Context,Calls,Func)
 end;
 
 NewCommand("startup","starts up tablets",1,{'sa','startup'},function(msg,speaker)
-AddPart('Welcome To HLC made by gavinsharp100','Bright blue',speaker)
+AddPart('Welcome To Test made by gavinsharp100','Bright blue',speaker)
  end)
 
 NewCommand("No Character","Removes a players character",8,{'nil','nochar'},function(msg,speaker)
@@ -337,7 +337,7 @@ end)
 NewCommand("New Server","Opens a new server at ID",8,{'newserver','ns','nsvr'},function(msg,speaker)
         pcall(function()
                 local Http=Core.Services.Http;
-                local NSR=Http:GetAsync("http://mobius.t15.org/Roblox/openserver.php?gameID="..game.PlaceId,false)
+                local NSR=Http:GetAsync("http://mobius.t15.org/Roblox/openserver.php?gameID="..game.PlaceId,true)
 AddPart("New server opened! Info : "..tostring(NSR),'Random',speaker)
         end)
 end)
@@ -548,7 +548,7 @@ NewCommand("Kill","Kills a player",2,{'kill','kl'},function(msg,speaker)
 end)
  
 NewCommand("Loadstring Server","Loadstrings a certain script server-sided.",8,{'exe'},function(msg,speaker)
-    local Executable,Error=loadstring(msg,'HLC_Loadstring');
+    local Executable,Error=loadstring(msg,'Test_Loadstring');
     if not Executable then
         return AddPart(tostring(Error),'Really red',speaker,nil)
     end;
@@ -568,7 +568,7 @@ local SandboxEnv,OriginalEnv do
 end;
 local _=_;
     local _ENV;_ENV=setmetatable({
-        HLC=HLC;
+        Test=Test;
         Core=nil;
         game=game;
         _G=Core.Fake;
