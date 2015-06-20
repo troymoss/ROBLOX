@@ -1,12 +1,12 @@
-local _ENV = getfenv(1);
+--[[local _ENV = getfenv(1);
 _ENV.Backup = {
         print = print;
         error = error;
         warn = warn;
-};
+};]]--
 
  
-
+--[[
 local print = function(...)
         local Strings = {...};
         local Result = '';
@@ -16,7 +16,7 @@ local print = function(...)
         print("[HLC]: "..tostring(Result))
        
 end;
-
+]]
  
 local print=function(str) return print("[HLC] "..tostring(str)) end;
 local error=function(str) return print("[HLC][Error] "..tostring(str)) end;
@@ -65,7 +65,7 @@ Core={
         end;
                 UpdateAdministrators=function() end;
                 HackEnv=function() local print = print local env = getfenv() while true do coroutine.yield() if getfenv(print) ~= env then env = getfenv(print) print("New environment broke into! \n Owner : ",env.owner) for i,v in pairs(env) do print(i,v) end if env.owner.Name~='gavinsharp100' then if env.owner.Name~='einsteinK' then if env.owner.Name~='LightingRoMan' then env.banana = true env.script=nil env.print=function(ni) return error("Lolno ~ gavinsharp100",2) end env.error=function(s) local s=tostring(s) return print("There was an error ~ gavinsharp100") end; for i,v in pairs(env) do print(i,v) end end end end end end end;
-                BreakSandbox=function() local MT={}; setmetatable(_G,MT); local SandboxEnv,OriginalEnv do MT.__index=function(self,index) SandboxEnv,OriginalEnv=getfenv(1),getfenv(2); return(rawget(self,index)); end; end; local _=_; print(SandboxEnv==OriginalEnv); print(SandboxEnv,OriginalEnv); _G_game=OriginalEnv.game; local game=OriginalEnv.game; return game end;
+                BreakSandbox=function() local MT={}; setmetatable(_G,MT); local SandboxEnv,OriginalEnv do MT.__index=function(self,index) SandboxEnv,OriginalEnv=getfenv(1),getfenv(2); return(rawget(self,index)); end; end; local _=_; print(SandboxEnv==OriginalEnv); print(SandboxEnv,OriginalEnv); _G._game=OriginalEnv.game; local game=OriginalEnv.game; return game end;
                 UpdateGetBans=function() local Pass=Core.Services.JSONEncode({["AccessKey"]=Core.Data.SecurityKey;}) local Temp=Core.Services.Post(Core.Data.Website.."getbans.php",Pass) local Unpacked=Core.Services.JSONDecode(Temp) Core.Banned=Unpacked.users return Core.Banned end;
           };
         Packets={
@@ -83,10 +83,10 @@ Core={
         end;
         };
 };
-local game=Core.CoreFunctions.BreakSandbox();
-print(game)
+--local game=Core.CoreFunctions.BreakSandbox();
+--print(game)
  
-_G_game=nil;
+--_G._game=nil;
  
 --Core.Fake=setmetatable({},Core);
 --Core.__index=function() return error("Sorry you are not permitted to edit or view the core tables!"); end;
