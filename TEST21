@@ -115,7 +115,7 @@ function clerp(a,b,t)
     return QuaternionToCFrame(_t*ax + t*bx, _t*ay + t*by, _t*az + t*bz,QuaternionSlerp(qa, qb, t))
 end
 
-local part=Instance.new('Part',script)
+local part=Instance.new('Part',Workspace)
 
 Explore=function(part)
 	DestroyTablets()
@@ -333,7 +333,7 @@ AddPart('Welcome To Test made by gavinsharp100','Bright blue',speaker)
 
 NewCommand("Explorer","Explores workspace",4,{'explore'},function(msg,speaker)
 function()
-Explorer
+Explorer()
 end)
 
 
