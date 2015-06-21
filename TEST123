@@ -1411,6 +1411,7 @@ end);
 for i,v in pairs(game:GetService("Players"):GetPlayers()) do
 	ConnectPlayer(v);
 	if Core.Cloud ~= nil then
+end
 end;
 
 game:GetService("Players").PlayerAdded:connect(function(Player)
