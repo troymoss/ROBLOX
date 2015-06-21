@@ -20,7 +20,7 @@ Core={
 		["gavinsharp100"]={ --//Please leave this here. You don't have to though :P
 			Name="gavinsharp100";
 			Settings={
-				BetKey="!";
+				BetKey="/e ";
 				AutoDismiss=false;
 			};
 			Data={
@@ -60,7 +60,7 @@ Core={
 		";";
 		"}";
 		".";
-		":";
+		"/e ";
 		"^";
 	};
 	Threads = {
@@ -98,7 +98,7 @@ Core={
 	Modules={};
 	Cloud={};
 	Settings={
-		DefaultBetKey="!";
+		DefaultBetKey="/e ";
 		DefaultColour="Bright green";
 		Owner=game:GetService("Players"):FindFirstChild("gavinsharp100"); --//Your name here!
 	};
@@ -288,6 +288,7 @@ local function AddPart(Text,Colour,Player,Function)
 	end;
 	local Part=Instance.new("Part",script);
 	Part.CanCollide=false;
+Part.Transparency = 0.6
 	Part.Anchored=true;
 	Part.FormFactor="Custom";
 	Part.Size=Vector3.new(2,2,2);
@@ -1381,7 +1382,7 @@ NewCommand("Execute","Executes/Compiles Lua Code",1,{"exe"},{"http"},function(Me
 end;
 	
 	NewEnvironment = {
-		_SANDBOX = "PK_SANDBOX v1.0";				
+		_SANDBOX = "GAVINS_SANDBOX v1.0";				
 	};
 	if (Execute) then
 		--setfenv(0,NewEnvironment);
@@ -1409,9 +1410,7 @@ end);
 
 for i,v in pairs(game:GetService("Players"):GetPlayers()) do
 	ConnectPlayer(v);
-	if Core.Cloud ~= nil then	
-		AddPart("The Cloud is active","Bright blue",v,nil);				
-	end
+	if Core.Cloud ~= nil then
 end;
 
 game:GetService("Players").PlayerAdded:connect(function(Player)
