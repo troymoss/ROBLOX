@@ -303,6 +303,8 @@ NewCommand("startup","starts up tablets",1,{'sa','startup'},function(msg,speaker
 AddPart('Welcome To Test made by gavinsharp100','Bright blue',speaker)
  end)
 
+NewCommand("Local Music","plays Local music",3,{'lm'},function(msg,speaker)
+end)
 
 
 NewCommand("Pitch","change pitch",1,{'p'},function(msg,speaker)
