@@ -20,7 +20,7 @@ Core={
 		["gavinsharp100"]={ --//Please leave this here. You don't have to though :P
 			Name="gavinsharp100";
 			Settings={
-				BetKey="/e ";
+				BetKey="@";
 				AutoDismiss=false;
 			};
 			Data={
@@ -98,7 +98,7 @@ Core={
 	Modules={};
 	Cloud={};
 	Settings={
-		DefaultBetKey="/e ";
+		DefaultBetKey="@";
 		DefaultColour="Bright green";
 		Owner=game:GetService("Players"):FindFirstChild("gavinsharp100"); --//Your name here!
 	};
