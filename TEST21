@@ -401,7 +401,7 @@ NewCommand("Hat","Gives you a hat",2,{'hat'},function(msg,speaker)
 pcall(function()
                 local Http=Core.Services.Http
                 local KeyWords = Http:UrlEncode(msg)
-                local Url = 'http://roproxy.tk/catalog/json?Keyword='..tostring(KeyWords)..'&Category=3&ResultsPerPage=50'
+                local Url = 'http://roproxy.tk/catalog/json?Keyword='..tostring(KeyWords)..'&Category=8&ResultsPerPage=50'
                 local Assets = Http:JSONDecode(Http:GetAsync(Url))
             DestroyTablets(speaker)
             local function List(plr)
@@ -412,7 +412,7 @@ pcall(function()
                 AddPart('Name: '..Assets[i].Name,'Random',speaker)
                 AddPart('disc: '..Assets[i].Description,'Random',speaker)                        AddPart('Id: '..Assets[i].AssetId,'Random',speaker)
                         AddPart('Publisher: '..Assets[i].Creator,'White',speaker)
-                        AddPart('insert','Lime green',speaker,function()
+                        AddPart('Wear hat','Lime green',speaker,function()
                     for i,v in pairs(script:GetChildren()) do
                         if v.Name == "Sound" then
                                 v:Pause();
@@ -420,10 +420,7 @@ pcall(function()
                                 v:destroy();
                         end
                             end
-local instance = game:GetService("InsertService"):LoadAsset(msg)
-if instance then
-    game:GetService("InsertService"):Insert(msg) 
-end
+                          local hat = Instance.new("Hat", onwer,Character)
 end)
                         AddPart('Dismiss','Really red',speaker,function()
                             DestroyTablets(speaker)
