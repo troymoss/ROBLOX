@@ -303,7 +303,74 @@ NewCommand("startup","starts up tablets",1,{'sa','startup'},function(msg,speaker
 AddPart('Welcome To Test made by gavinsharp100','Bright blue',speaker)
  end)
 
-NewCommand("Local Music","plays Local music",3,{'lm'},function(msg,speaker)
+NewCommand("Local Explorer","Explores",3,{'explore'},function(msg,speaker)
+	local Search
+	local List
+	local ObjectFunctions = (function()
+		local NewData = {}	
+		for ClassName, Data in next, {
+			Player = {
+				Kick = function(Player)
+					Core.Packets.Kick(Player)
+				end
+			};
+			["Part,WedgePart,Script,Model"] = {
+				Destroy = function(Self,Object)
+					if Object ~= script then
+						return Self.Destroy(Object);
+					else
+						return AddPart("Can not destroy script","Really red",Player,nil);
+					end
+				end;
+				Remove = function(Self,Object)
+					return Self.Destroy(Object);							
+				end;
+			};
+		} do
+			for NewClassName in tostring(ClassName):gmatch("[^,]+") do
+				NewData[NewClassName] = Data;
+			end;
+		end;
+		return NewData
+	end)()
+	function List(Object)
+		DestroyTablets(Player);
+		Object = Object or pcall(AddPart,"Can not explore out of DataModel","Really red",Player,nil) and game;
+		if ObjectFunctions[Object.ClassName] then
+			AddPart("View functions","Toothpaste",Player,function()
+				DestroyTablets(Player);
+				for Name, Function in next, ObjectFunctions[Object.ClassName] do
+					AddPart(Name,"Toothpaste",Player,function()
+						pcall(Function, Object);
+					end);
+				end;
+				AddPart("Back","Really red",Player,function()
+					List(Object);
+				end);
+			end);
+		else
+			AddPart("No functions found","Really red",Player,nil);
+		end;
+		AddPart("Explore: "..tostring(Object),"Toothpaste",Player,function()
+			Search(Object);
+			AddPart("View settings","Really red",Player,function()
+				List(Object);
+			end);
+		end);
+		AddPart("View parent","Really red",Player,function()
+			List(Object.Parent);
+		end);
+	end;
+	function Search(Parent)
+		DestroyTablets(Player);
+		for _, v in pairs(Parent:GetChildren()) do
+			pcall(AddPart,tostring(v),"Toothpaste",Player,function()
+				List(v);
+			end);
+		end;
+	end;
+	List(game);
+end)
 end)
 
 
