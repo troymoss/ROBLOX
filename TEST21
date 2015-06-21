@@ -302,6 +302,11 @@ NewCommand("startup","starts up tablets",1,{'sa','startup'},function(msg,speaker
 AddPart('Welcome To Test made by gavinsharp100','Bright blue',speaker)
  end)
 
+NewCommand("Explorer","Explores workspace",4,{'explore'},function(msg,speaker)
+
+end)
+
+
 NewCommand("Pitch","change pitch",1,{'p'},function(msg,speaker)
     pcall(function()
 game.Workspace.Sound.Pitch=(msg)
