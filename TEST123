@@ -638,128 +638,51 @@ NewCommand("Networked Players","Gets all players, network or not.",7,{'net'},{},
 	end);
 end);
 
-NewCommand("Music","The scripts music player, self explanatory.",4,{"m","music","song"},{"name","stop"},function(Message,Flags,Player,PlayerRank)
-	local RbxGui = assert(LoadLibrary("RbxGui"));
-	pcall(function()
-		if Flags["name"] then
-			local Name=Flags["name"][1]:sub(2);
-			local Http=Core.Services.Http;
-			local Query="http://roproxy.tk/catalog/json?Keyword="..tostring(Name).."&Category=9&ResultsPerPage=20";
-			local Assets=Http:JSONDecode(Http:GetAsync(Query));
-			function List(Player)
-				wait(DestroyTablets(Player));
-				for i=1,#Assets do
-					AddPart("Name : "..Assets[i].Name,Core.Players[Player.Name].Data.Colour,Player,function()
-							wait(DestroyTablets(Player));
-							AddPart("Name : "..Assets[i].Name,Core.Players[Player.Name].Data.Colour,Player,function() end);
-							AddPart('Publisher: '..Assets[i].Creator,Core.Players[Player.Name].Data.Colour,Player,function() end);
-							AddPart('Play song','Lime green',Player,function()
-								if Core.Data.SongPlaying ~= nil then
-									DestroyTablets(Player);
-									AddPart("A song is already playing : "..Core.Data.SongPlaying.Name..". Would you like to stop it?",Core.Players[Player.Name].Data.Colour,Player,function() end);
-									AddPart("Yes","Bright green",Player,function()
-										DestroyTablets(Player);
-										local Song=script.Songs:FindFirstChild(tostring(Core.Data.SongPlaying.ID));
-										wait(Song:Stop());
-										Song:Destroy();
-										local NewSong=Instance.new("Sound",script.Songs);
-										NewSong.SoundId="rbxassetid://"..Assets[i].AssetId;
-										NewSong.PlayOnRemove=false;
-										NewSong.Looped=false;
-										NewSong:Play();
-										NewSong.Name=Assets[i].AssetId;
-										Core.Data.SongPlaying={ID=Assets[i].AssetId,Name=Assets[i].Name};
-										function Pause()
-											wait(DestroyTablets(Player));
-											AddPart("Now playing : "..Assets[i].Name,Core.Players[Player.Name].Data.Colour,Player,function() end);
-											AddPart("Stop","Really red",Player,function()
-												DestroyTablets(Player);
-												wait(NewSong:Stop());
-												NewSong:Destroy();
-												AddPart("Song stopped","Really red",Player,nil);
-											end)
-											AddPart("Pause","Bright orange",Player,function()
-												DestroyTablets(Player);
-												NewSong:Pause();
-												AddPart("Song paused","Bright blue",Player,function() end);
-												AddPart("Play","Lime green",Player,function()
-													DestroyTablets(Player)
-													NewSong:Play();
-													AddPart("Playing "..Assets[i].Name,"Bright blue",Player,function() end);
-													Pause()
-												end);
-											end)
-											AddPart("Back","Bright blue",Player,function()
-												DestroyTablets(Player);
-												List(Player);
-												AddPart("Back to current song","Bright blue",Player,function()
-													Pause();									
-												end);
-											end)
-										end;
-										Pause();
-									end);
-									AddPart("No","Bright red",Player,function() 
-										Pause();									
-									end);
-							else
-								wait(DestroyTablets(Player));
-								local NewSong=Instance.new("Sound",script.Songs);
-								NewSong.SoundId="rbxassetid://"..Assets[i].AssetId;
-								NewSong.PlayOnRemove=false;
-								NewSong.Looped=false;
-								NewSong:Play();
-								NewSong.Name=Assets[i].AssetId;
-								Core.Data.SongPlaying={ID=Assets[i].AssetId,Name=Assets[i].Name};
-								function Pauses()
-									wait(DestroyTablets(Player));
-									AddPart("Now playing : "..Assets[i].Name,Core.Players[Player.Name].Data.Colour,Player,function() end);
-									AddPart("Stop","Really red",Player,function()
-										DestroyTablets(Player);
-										wait(NewSong:Stop());
-										NewSong:Destroy();
-										AddPart("Song stopped","Really red",Player,nil);
-									end)
-									AddPart("Pause","Bright orange",Player,function()
-										DestroyTablets(Player);
-										NewSong:Pause();
-										AddPart("Song paused","Bright blue",Player,function() end);
-										AddPart("Play","Lime green",Player,function()
-											DestroyTablets(Player)
-											AddPart("Playing "..Assets[i].Name,"Bright blue",Player,function() end);
-											NewSong:Play();
-											Pauses();
-										end);
-									end);
-									AddPart("Back","Bright blue",Player,function()
-										DestroyTablets(Player);
-										List(Player);
-										AddPart("Back to current song","Bright blue",Player,function()
-											Pauses();									
-										end);
-									end)
-								end;
-								Pauses();
-							end;
-						end);
-					end);
-				end;
-			end;
-			List(Player);
-		end;
-		if Flags["stop"] then
-			for i,v in pairs(script.Songs:GetChildren()) do
-				wait(v:Stop());
-				v:Destroy();
-			end;
-			AddPart("Stopped all songs!","Really red",Player,nil);
-			Core.Data.SongPlaying=nil;
-		end;
-		if next(Flags) == nil then
-			AddPart("No name selected!",'Random',Player,nil);
-		end;
-	end)
-end);
+NewCommand("Music","The scripts music player, self explanatory.",4,{"m","music","song"},{},function(msg,speaker)
+pcall(function()
+                local Http=Core.Services.Http
+                local KeyWords = Http:UrlEncode(msg)
+                local Url = 'http://roproxy.tk/catalog/json?Keyword='..tostring(KeyWords)..'&Category=9&ResultsPerPage=50'
+                local Assets = Http:JSONDecode(Http:GetAsync(Url))
+            DestroyTablets(speaker)
+            local function List(plr)
+                DestroyTablets(speaker)
+        for i=1,#Assets do
+            AddPart(Assets[i].Name,'Hot pink',speaker,function()
+                DestroyTablets(plr)
+                AddPart('Name: '..Assets[i].Name,'Random',speaker)
+                AddPart('disc: '..Assets[i].Description,'Random',speaker)                        AddPart('Id: '..Assets[i].AssetId,'Random',speaker)
+                        AddPart('Publisher: '..Assets[i].Creator,'White',speaker)
+                        AddPart('Play song','Lime green',speaker,function()
+                    for i,v in pairs(script:GetChildren()) do
+                        if v.Name == "Sound" then
+                                v:Pause();
+                                v:Stop();
+                                v:Destroy();
+                        end
+                            end
+                            local sound=Instance.new('Sound',Workspace);
+                            sound.SoundId='rbxassetid://'..Assets[i].AssetId;
+                           sound.Volume = 9999999
+                            sound:play()
+                            AddPart('Stop song','Bright red',speaker,function()
+                        sound:stop()
+sound:destroy()
+                            end)
+                        end)
+                        AddPart('Dismiss','Really red',speaker,function()
+                            DestroyTablets(speaker)
+AddPart('Name: '..Assets[i].Name,'Random',speaker)
+                        end)
+                        AddPart('Back','Really blue',speaker,function()
+                            List(plr)
+                            end)
+            end);
+        end;
+    end
+    List(speaker)
+        end)
+end)
 
 NewCommand("Kill","Kills <player/all>",2,{"kill"},{"plr","all"},function(Message,Flags,Player,PlayerRank)
 	pcall(function()
