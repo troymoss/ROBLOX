@@ -18,7 +18,7 @@ local music={
 }
 
 local plr=game.Players:WaitForChild('gavinsharp100')
-local s=Instance.new('Sound',game.SoundService);s.Name='SONG'
+local s=Instance.new('Sound',game.Workspace);s.Name='SONG'
 
 function addsound(id)
 	s:Stop()
@@ -28,11 +28,11 @@ function addsound(id)
 end
 
 function sound_check()
-	if plr.Character and game.SoundService:FindFirstChild("SONG",true) then
+	if plr.Character and game.Workspace:findFirstChild("SONG",true) then
 		return
 	elseif not plr.Character then plr:LoadCharacter() return
-	elseif not SoundService:findFirstChild('SONG',true) then 
-		s=Instance.new('Sound',SoundService);s.Name='SONG'
+	elseif not Workspace:findFirstChild('SONG',true) then 
+		s=Instance.new('Sound',Workspace);s.Name='SONG'
 	end
 end
 
