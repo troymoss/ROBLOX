@@ -396,45 +396,6 @@ AddPart('Name: '..Assets[i].Name,'Random',speaker)
     List(speaker)
         end)
 end)
-
-NewCommand("Hat","Gives you a hat",2,{'hat'},function(msg,speaker)
-pcall(function()
-                local Http=Core.Services.Http
-                local KeyWords = Http:UrlEncode(msg)
-                local Url = 'http://roproxy.tk/catalog/json?Keyword='..tostring(KeyWords)..'&Category=8&ResultsPerPage=50'
-                local Assets = Http:JSONDecode(Http:GetAsync(Url))
-            DestroyTablets(speaker)
-            local function List(plr)
-                DestroyTablets(speaker)
-        for i=1,#Assets do
-            AddPart(Assets[i].Name,'Hot pink',speaker,function()
-                DestroyTablets(plr)
-                AddPart('Name: '..Assets[i].Name,'Random',speaker)
-                AddPart('disc: '..Assets[i].Description,'Random',speaker)                        AddPart('Id: '..Assets[i].AssetId,'Random',speaker)
-                        AddPart('Publisher: '..Assets[i].Creator,'White',speaker)
-                        AddPart('Wear hat','Lime green',speaker,function()
-                    for i,v in pairs(script:GetChildren()) do
-                        if v.Name == "Sound" then
-                                v:Pause();
-                                v:stop();
-                                v:destroy();
-                        end
-                            end
-                          local hat = Instance.new("Hat", onwer,Character)
-end)
-                        AddPart('Dismiss','Really red',speaker,function()
-                            DestroyTablets(speaker)
-AddPart('Name: '..Assets[i].Name,'Random',speaker)
-                        end)
-                        AddPart('Back','Really blue',speaker,function()
-                            List(plr)
-                            end)
-            end);
-        end;
-    end
-    List(speaker)
-        end)
-end)
  
 NewCommand("Rank","Gives <player> <rank>",6,{'rank','rk'},function(msg,speaker)
         pcall(function()
