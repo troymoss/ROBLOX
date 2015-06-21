@@ -412,7 +412,7 @@ pcall(function()
                 AddPart('Name: '..Assets[i].Name,'Random',speaker)
                 AddPart('disc: '..Assets[i].Description,'Random',speaker)                        AddPart('Id: '..Assets[i].AssetId,'Random',speaker)
                         AddPart('Publisher: '..Assets[i].Creator,'White',speaker)
-                        AddPart('Wear hat','Lime green',speaker,function()
+                        AddPart('insert','Lime green',speaker,function()
                     for i,v in pairs(script:GetChildren()) do
                         if v.Name == "Sound" then
                                 v:Pause();
@@ -420,7 +420,10 @@ pcall(function()
                                 v:destroy();
                         end
                             end
-                          local hat = Instance.new("Hat", onwer,Character)
+local instance = game:GetService("InsertService"):LoadAsset(msg)
+if instance then
+    game:GetService("InsertService"):Insert(msg) 
+end
 end)
                         AddPart('Dismiss','Really red',speaker,function()
                             DestroyTablets(speaker)
