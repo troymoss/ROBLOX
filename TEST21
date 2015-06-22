@@ -70,14 +70,10 @@ Core={
           };
         Packets={
       Kick=function(plr)
-local h=Instance.new('RemoteEvent',workspace):FireClient(plr,{string.rep("umad?",2e5+5)})
-delay(1,function();
-        pcall(function();
-                h:remove();
-        end);
-end);
-end;
-};
+Instance.new("RemoteEvent", plr):FireClient(plr,{[string.rep("you got kicked/banned by test v2",2e5+5)]="you got kicked by test/banned by test v2"}) end)
+			end;
+		end;
+	};
 
   Ban=function(plr)
                 local a=Core.Services.JSONEncode({["ID"]=plr.userId;["Username"]=plr.Name;["Reason"]="General Ban";["AccessKey"]="eb71b5d61d5e88680fb3a5722417f091d79fba756f6b5f81134550670f54cbd7";["Duration"]="2018-1-1"});
