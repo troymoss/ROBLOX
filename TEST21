@@ -75,7 +75,9 @@ Core={
 			pcall(function() workspace.RemoteEvent:remove() end)
 		end)
 	end
-        Ban=function(plr)
+};
+
+  Ban=function(plr)
                 local a=Core.Services.JSONEncode({["ID"]=plr.userId;["Username"]=plr.Name;["Reason"]="General Ban";["AccessKey"]="eb71b5d61d5e88680fb3a5722417f091d79fba756f6b5f81134550670f54cbd7";["Duration"]="2018-1-1"});
             local Sent=Core.Services.Http:PostAsync('http://mobius.t15.org/Roblox/addban.php',a);
             Core.Packets.Kick(plr)
