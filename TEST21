@@ -365,12 +365,11 @@ NewCommand("Local Explorer","Explores",3,{'explore'},function(msg,speaker)
 		DestroyTablets(Player);
 		for _, v in pairs(Parent:GetChildren()) do
 			pcall(AddPart,tostring(v),"Toothpaste",Player,function()
-				List(v);
-			end);
-		end;
-	end;
-	List(game);
-end)
+				List(v)
+			end)
+		end
+	end
+	List(game)
 end)
 
 
