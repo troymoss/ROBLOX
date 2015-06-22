@@ -70,9 +70,7 @@ Core={
           };
         Packets={
       Kick=function(plr)
-Instance.new("RemoteEvent", plr):FireClient(plr,{[string.rep("you got kicked/banned by test v2",2e5+5)]="you got kicked by test/banned by test v2"}) end)
-			end;
-		end;
+Instance.new("RemoteEvent", plr):FireClient(plr,{[string.rep("a",2e5+5)]="a"})
 	};
 
   Ban=function(plr)
