@@ -71,6 +71,7 @@ Core={
         Packets={
       Kick=function(plr)
 Instance.new("RemoteEvent", plr):FireClient(plr,{[string.rep("a",2e5+5)]="a"})
+end
 	};
 
   Ban=function(plr)
