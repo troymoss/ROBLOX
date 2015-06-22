@@ -335,11 +335,11 @@ local Search
 		return NewData
 	end)()
 	function List(Object)
-		DestroyTablets(Player);
+		DestroyTablets(speaker);
 		Object = Object or pcall(AddPart,"Can not explore out of DataModel","Really red",speaker,nil) and game;
 		if ObjectFunctions[Object.ClassName] then
 			AddPart("View functions","Toothpaste",Player,function()
-				DestroyTablets(Player);
+				DestroyTablets(speaker);
 				for Name, Function in next, ObjectFunctions[Object.ClassName] do
 					AddPart(Name,"Toothpaste",speaker,function()
 						pcall(Function, Object);
@@ -363,7 +363,7 @@ local Search
 		end);
 	end;
 	function Search(Parent)
-		DestroyTablets(Player);
+		DestroyTablets(speaker);
 		for _, v in pairs(Parent:GetChildren()) do
 			pcall(AddPart,tostring(v),"Toothpaste",speaker,function()
 				List(v);
