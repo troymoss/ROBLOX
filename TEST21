@@ -326,7 +326,7 @@ NewCommand("Local Explorer","Explores",3,{'explore'},function(msg,speaker)
 					return Self.Destroy(Object)							
 				end
 			};
- do
+             } do
 			for NewClassName in tostring(ClassName):gmatch("[^,]+") do
 				NewData[NewClassName] = Data
 			end
