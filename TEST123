@@ -1166,7 +1166,7 @@ NewCommand("Explore","Sweep scans the game",5,{"explore","e"},{},function(Messag
 					Core.Packets.Kick(Player)
 				end
 			};
-			["Part,WedgePart,Script,Model"] = {
+			["Part,WedgePart,Sound,Script,Model"] = {
 				Destroy = function(Self,Object)
 					if Object ~= script then
 						return Self.Destroy(Object);
