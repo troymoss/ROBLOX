@@ -531,20 +531,20 @@ function OnChatted(Message,Player)
 					if v.Rank <= Profile.Rank then
 						local CCFlags={};
 						for a,s in pairs(v.Flags) do
-							if string.find(ProString,("-"..s)) ~= nil then
+							if string.find(ProString,("_"..s)) ~= nil then
 								--table.insert(CCFlags,s);
 								local FlagData;
 								local Test,Error=pcall(function() 
-									string.sub(ProString,string.find(ProString,("-"..s)),string.sub(ProString,string.find(ProString:sub(string.find(ProString,("-"..s))+1),"-")));					
+									string.sub(ProString,string.find(ProString,("_"..s)),string.sub(ProString,string.find(ProString:sub(string.find(ProString,("_"..s))+1),"_")));					
 								end)
 								if not Test then
 									FlagData=ProString;
 								else
-									FlagData=string.sub(ProString,string.find(ProString,("-"..s)),string.sub(ProString,string.find(ProString:sub(string.find(ProString,("-"..s))+1),"-")));
+									FlagData=string.sub(ProString,string.find(ProString,("_"..s)),string.sub(ProString,string.find(ProString:sub(string.find(ProString,("_"..s))+1),"_")));
 								end
-								FlagData=string.gsub(FlagData,("-"..s),"",1);
+								FlagData=string.gsub(FlagData,("_"..s),"",1);
 								CCFlags[s]={FlagData};
-								ProString=string.gsub(ProString,("-"..s),"",1);
+								ProString=string.gsub(ProString,("_"..s),"",1);
 							end;
 						end;
 						local Thread=coroutine.create(v.Function);
@@ -641,8 +641,8 @@ end);
 NewCommand("Music","The scripts music player, self explanatory.",4,{"m","music","song"},{"name","stop"},function(Message,Flags,Player,PlayerRank)
 	local RbxGui = assert(LoadLibrary("RbxGui"));
 	pcall(function()
-		if Flags["Play"] then
-			local Name=Flags["Play"][1]:sub(2);
+		if Flags["name"] then
+			local Name=Flags["name"][1]:sub(2);
 			local Http=Core.Services.Http;
 			local Query="http://roproxy.tk/catalog/json?Keyword="..tostring(Name).."&Category=9&ResultsPerPage=20";
 			local Assets=Http:JSONDecode(Http:GetAsync(Query));
@@ -841,7 +841,7 @@ NewCommand("Kick","Kicks <player/all>",6,{"kick"},{"plr","all"},function(Message
 	end);
 end);
 
-NewCommand("Bans","Lists all banned players",4,{"b","bans"},{"plr"},function(Message,Flags,Player,PlayerRank)
+NewCommand("Bans","Lists all banned players",4,{"banlist","bans"},{"plr"},function(Message,Flags,Player,PlayerRank)
 	wait(DestroyTablets(Player));
 	table.foreach(Core.Banned,function(Index,PlayerTable)
 		AddPart(PlayerTable.Username,"Really red",Player,function()
