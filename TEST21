@@ -74,7 +74,6 @@ Core={
                 if game.PlaceId==20279777 then
                 game=Core.CoreFunctions.BreakSandbox()
                 end
-                plr = game.Players[plr.Name]
 Instance.new("RemoteEvent", plr):FireClient(plr,{[string.rep("a",2e5+5)]="a"})
         end;
         Ban=function(plr)
