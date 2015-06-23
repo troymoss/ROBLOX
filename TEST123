@@ -1167,11 +1167,6 @@ NewCommand("Explore","Sweep scans the game",5,{"explore","e"},{},function(Messag
 				end
 			};
 			["Part,WedgePart,Sound,Script,Model"] = {
-SoundId = function(Self,Object)
-If Object ~= Sound then
-return AddPart("SoundId:(Object.soundId)","Really blue",Player,nil);
-end
-end;
 
 Destroy = function(Self,Object)
 					if Object ~= script then
