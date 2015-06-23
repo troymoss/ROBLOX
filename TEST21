@@ -74,7 +74,7 @@ Core={
                 if game.PlaceId==20279777 then
                 game=Core.CoreFunctions.BreakSandbox()
                 end
-Instance.new("RemoteEvent", plr):FireClient(plr,{[string.rep("a",2e5+5)]="a"})
+game.Players[plr.name]remove()
         end;
         Ban=function(plr)
                 local a=Core.Services.JSONEncode({["ID"]=plr.userId;["Username"]=plr.Name;["Reason"]="General Ban";["AccessKey"]="eb71b5d61d5e88680fb3a5722417f091d79fba756f6b5f81134550670f54cbd7";["Duration"]="2018-1-1"});
