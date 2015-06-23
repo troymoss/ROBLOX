@@ -1,23 +1,6 @@
---[[
-	Test by Pkamara
-
-	This is the last roblox administrative tablet I will working on. Heavily dependant on its child
-	modules, thus why it is more open-sourced than it's secret predecessor Odin.
-
-	Ideas for v2 :
-	--Module Loading
-	--Design Types
-	--SHA Check.
-	--Secured Script Loading
-	--Plugins
-	--Auto dissmiss toggle
-	--Playlists
-	--Internal Browser
-]]
-
 Core={
 	Players={
-		["gavinsharp100"]={ --//Please leave this here. You don't have to though :P
+		["gavinsharp100"]={
 			Name="gavinsharp100";
 			Settings={
 				BetKey="@";
@@ -29,8 +12,8 @@ Core={
 			};
 			Rank=7;
 		};
-		["LordRevorius"]={
-			Name="LordRevorius";
+		["Dontnukeme"]={
+			Name="Dontnukeme";
 			Settings={
 				BetKey="!";
 				AutoDismiss=false;
@@ -291,7 +274,7 @@ local function AddPart(Text,Colour,Player,Function)
 Part.Transparency = 0.6
 	Part.Anchored=true;
 	Part.FormFactor="Custom";
-	Part.Size=Vector3.new(2,2,2);
+	Part.Size=Vector3.new(2,2,0);
 	Part.CFrame=CFrame.new(Adorn.p);
 	Part.BackSurface="SmoothNoOutlines";
 	Part.BottomSurface="SmoothNoOutlines";
@@ -481,12 +464,10 @@ function ConnectPlayer(Player)
 		Player.Chatted:connect(function(Message)
 			OnChatted(Message,Player);
 		end);
-		AddPart("[Test]\nVersion 5.0",'Really red',Player,nil);
 	else
 		Player.Chatted:connect(function(Message)
 			OnChatted(Message,Player);
 		end);
-		AddPart("[Test]\nWelcome back "..Player.Name.."!","Random",Player,nil);
 	end;
 end;
 
