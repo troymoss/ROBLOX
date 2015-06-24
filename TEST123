@@ -1033,7 +1033,14 @@ NewCommand("Players","Lists all players",5,{"plrs","players","plys","plyrs"},{"p
 							end);
 						end);
 						AddPart("Colour - "..Core.Players[v.Name].Data.Colour,Core.Players[Player.Name].Data.Colour,Player,function()
-							local Colours={"White","Bright red","Bright green","Bright blue","Bright yellow","Toothpaste","Pink","Black"};
+							local Colours={'Br. yellowish green','Bright yellow','Bright orange','Bright red','Bright violet','Bright blue','Bright bluish green',
+'Bright green','Institutional white','White','Light stone grey','Mid gray','Medium stone grey','Dark stone grey','Black',
+'Really black','Grime','Br. yellowish orange','Light orange','Sand red','Lavender','Sand blue','Medium blue','Sand green',
+'Brick yellow','Cool yellow','Neon orange','Medium red','Light reddish violet','Pastel Blue','Teal','Medium green',
+'Pastel brown','Pastel yellow','Pastel orange','Pink','Pastel violet','Pastel light blue','Pastel blue-green','Pastel green',
+'Olive','New Yeller','Deep orange','Really red','Hot pink','Really blue','Toothpaste','Lime green','Brown','Nougat','Dark orange',
+'Royal purple','Alder','Cyan','Light blue','Camo','Reddish brown','CGA brown','Dusty Rose','Magenta','Deep blue','Navy blue',
+'Dark green','Earth green'};
 							DestroyTablets(Player);
 							table.foreach(Colours,function(Index,Colour)
 								AddPart(Colour,Colour,Player,function()
