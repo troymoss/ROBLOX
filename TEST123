@@ -731,7 +731,7 @@ NewCommand("Music","The scripts music player, self explanatory.",4,{"m","music",
 AddPart("The Current song id is "..Assets[i].AssetId,"Bright blue",Player,nil);
 end;
  Flags["p"] then
-local Name=Flags["pitch"][1]:sub(2);
+local pitch=Flags["p"][1]:sub(2);
 NewSong.Pitch=(pitch)
 AddPart("The Pitch is Changed","Really blue",Player,nil);
 end;
