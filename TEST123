@@ -790,6 +790,8 @@ NewCommand("Forcefield","Adds a forcefield to <player/all>",2,{"ff"},{"plr","all
 			AddPart("No player selected!","Really red",Player,nil);
 		end;
 	end);
+     end);
+  end);
 end);
 
 NewCommand("Respawn","Respawns <player/all>",2,{"respawn","rs"},{"plr","all"},function(Message,Flags,Player,PlayerRank)
