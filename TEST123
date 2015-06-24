@@ -600,7 +600,7 @@ NewCommand("Pitch","Changes Pitch",1,{'p'},{'p'},function(Message,Flags,Player,P
 pcall(function()
 	if Flags["p"] then
 			local Name=Flags["pitch"][1]:sub(2);
-game.Workspace.2.Songs.Pitch=(pitch)
+game.Workspace.BlokCaiks.Songs=(pitch)
     end)
 end)
 
