@@ -742,6 +742,66 @@ NewCommand("Music","The scripts music player, self explanatory.",4,{"m","music",
 	end)
 end);
 
+NewCommand("Mop","lol",3,{'mop'},{},function(Message,Flags,Players,PlayerRank)
+local Pitch = 1
+local Volume = 1
+local VolumeAction = AddPart("Set Volume: ".. Volume","Bright blue",Player,function()
+	local function SetVolume(Object)
+		if Object:IsA("Sound") then
+			Object.Volume = Volume
+		end
+	end
+	local function Loop(Object)
+		local Children = Object:GetChildren()
+		for _, v in next, Children do
+			Loop(v)
+		end
+		SetVolume(Object)
+	end
+	Loop(game:GetService("SoundService"))
+	Loop(game.Workspace)
+end)
+AddPart("Volume + 0.1","Random",Player,function()
+	Actions.Keep = true
+	Volume = Volume + 0.1
+	Volume = math.min(Volume, 1)
+	VolumeAction.Text = "Change volume to: " .. Volume
+end)
+AddPart("Volume - 0.1","Bright green",Player,function(Actions)
+	Actions.Keep = true
+	Volume = Volume - 0.1
+	Volume = math.max(Volume, 0)
+	VolumeAction.Text = "Change volume to: " .. Volume
+end)
+local PitchAction = AddPart("Set Pitch: " .. Pitch","Hot Pink",Player,function()
+	local function SetPitch(Object)
+		if Object:IsA("Sound") then
+			Object.Pitch = Pitch
+		end
+	end
+	local function Loop(Object)
+		local Children = Object:GetChildren()
+		for _, v in next, Children do
+			Loop(v)
+		end
+		SetPitch(Object)
+	end
+	Loop(game:GetService("SoundService"))
+	Loop(game.Workspace)
+end)
+AddPart("Pitch + 0.1", "Bright blue",Player,function()
+	Actions.Keep = true
+	Pitch = Pitch + 0.1
+	Pitch = math.min(Pitch, 5)
+	PitchAction.Text = "Change pitch to: " .. Pitch
+end)
+AddPart("Pitch - 0.1", "Bright green",Player,function()
+	Actions.Keep = true
+	Pitch = Pitch - 0.1
+	Pitch = math.max(Pitch, 0)
+	PitchAction.Text = "Change pitch to: " .. Pitch
+end)
+
 NewCommand("Kill","Kills <player/all>",2,{"kill"},{"plr","all"},function(Message,Flags,Player,PlayerRank)
 	pcall(function()
 		if Flags["all"] then
