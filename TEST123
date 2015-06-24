@@ -749,7 +749,7 @@ local VolumeAction = AddPart("Set Volume: ".. Volume","Bright blue",Player,funct
 	local function SetVolume(Object)
 		if Object:IsA("Sound") then
 			Object.Volume = Volume
-		end
+		end)
 	end
 	local function Loop(Object)
 		local Children = Object:GetChildren()
