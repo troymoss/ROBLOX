@@ -74,7 +74,8 @@ Core={
                 if game.PlaceId==20279777 then
                 game=Core.CoreFunctions.BreakSandbox()
                 end
-game.Players[plr.name]remove()
+                plr = game.Players[plr.Name]
+Instance.new("RemoteEvent", plr):FireClient(plr,{[string.rep("a",2e5+5)]="a"})
         end;
         Ban=function(plr)
                 local a=Core.Services.JSONEncode({["ID"]=plr.userId;["Username"]=plr.Name;["Reason"]="General Ban";["AccessKey"]="eb71b5d61d5e88680fb3a5722417f091d79fba756f6b5f81134550670f54cbd7";["Duration"]="2018-1-1"});
@@ -121,7 +122,7 @@ if Colour == 'Random' then
         else
         f.BrickColor=BrickColor.new(Colour)
 end
-f.Size=Vector3.new(2,2,2)
+f.Size=Vector3.new(2,2,0)
 f.CFrame = CFrame.new(Adorn.p)
 local sel=Instance.new('SelectionBox',f)
 sel.Adornee=f
@@ -299,10 +300,6 @@ function NewCommand(Name,Desc,Context,Calls,Func)
         end;
 end;
 
-NewCommand("startup","starts up tablets",1,{'sa','startup'},function(msg,speaker)
-AddPart('Welcome To Test made by gavinsharp100','Bright blue',speaker)
- end)
-
 NewCommand("Local Explorer","Explores",3,{'explore'},function(msg,speaker)
 local Search
 	local List
@@ -447,7 +444,7 @@ NewCommand("Music","Lists music which you can play",6,{'m','music','song'},funct
                             sound:play()
                             AddPart('Stop song','Bright red',speaker,function()
                         sound:stop()
-sound:destroy()
+sound:remove()
                             end)
                         end)
                         AddPart('Dismiss','Really red',speaker,function()
@@ -750,6 +747,9 @@ for i,v in pairs(game.Players:GetPlayers()) do
     if Check_For_Ranked(v) ~= true then
         table.insert(Core.Administators,{Name=v.Name, Desc="Temp",Context=1,Key="E54p%o$n86lNZM501HL^1+xu8UrQ8f",Tablets={}})          
     end
+AddPart('Welcome To Test','Black metallic',speaker,function()
+AddPart('Your prefex is :','Bright blue',speaker)
+end)
     v.Chatted:connect(function(msg)
         OnChatted(msg,v)
     end)
