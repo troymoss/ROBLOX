@@ -751,7 +751,7 @@ if Flags["stop"] then
 			AddPart("No name selected!",'Random',Player,nil);
 		end;
 	end)
-end);
+end)
 
 NewCommand("Kill","Kills <player/all>",2,{"kill"},{"plr","all"},function(Message,Flags,Player,PlayerRank)
 	pcall(function()
