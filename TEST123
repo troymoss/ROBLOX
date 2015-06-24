@@ -594,14 +594,7 @@ NewCommand("Ping","Pings a tablet to speaker",1,{'ping'},{"all","plr"},function(
 			ParseMessage(tostring(Message),Player,Player)
 		end;
 	end);
-end);
-
-NewCommand("Pitch","Changes Pitch",1,{'p'},{'p'},function(Message,Flags,Player,PlayerRank)
-pcall(function()
-	if Flags["p"] then
-			local Name=Flags["pitch"][1]:sub(2);
-game.Workspace.z.Songs.Pitch=(pitch)
-end)
+end
 
 NewCommand("Networked Players","Gets all players, network or not.",7,{'net'},{},function(Message,Flags,Player,PlayerRank)
 	if msg == "" then return end;
@@ -626,7 +619,7 @@ NewCommand("Networked Players","Gets all players, network or not.",7,{'net'},{},
 	end);
 end);
 
-NewCommand("Music","The scripts music player, self explanatory.",4,{"m","music","song"},{"name","stop","id"},function(Message,Flags,Player,PlayerRank)
+NewCommand("Music","The scripts music player, self explanatory.",4,{"m","music","song"},{"name","stop","id","p"},function(Message,Flags,Player,PlayerRank)
 	local RbxGui = assert(LoadLibrary("RbxGui"));
 	pcall(function()
 		if Flags["name"] then
@@ -736,8 +729,13 @@ NewCommand("Music","The scripts music player, self explanatory.",4,{"m","music",
 			List(Player);
 		end;
 	if Flags["id"] then
-AddPart("The Current song id is "..Assets[i].AssetId,"Bright blue",Player,function()
-end)
+AddPart("The Current song id is "..Assets[i].AssetId,"Bright blue",Player,nil);
+end;
+ Flags["p"] then
+local Name=Flags["pitch"][1]:sub(2);
+NewSong.Pitch=(pitch)
+AddPart("The Pitch is Changed","Really blue",Player,nil);
+end;
 if Flags["stop"] then
 			for i,v in pairs(script.Songs:GetChildren()) do
 				wait(v:Stop());
