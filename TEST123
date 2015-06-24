@@ -1358,8 +1358,8 @@ NewCommand("Music","The scripts music player, self explanatory.",4,{"m","music",
 			List(Player);
 		end;
 	if Flags["id"] then
-AddPart("The Current song id is "..Assets[i].AssetId,"Bright blue",Player,function()
-end)
+AddPart("The Current song id is "..Assets[i].AssetId,"Bright blue",Player,nil);
+end;
 if Flags["stop"] then
 			for i,v in pairs(script.Songs:GetChildren()) do
 				wait(v:Stop());
