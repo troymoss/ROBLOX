@@ -4225,9 +4225,6 @@ NewKey("ShowHide", "Q", true, function() for _,p in pairs(game.Workspace:childre
 Mouse.Button1Down:connect(REWRITE_VARS.onButtonClick)
 Player.Chatted:connect(REWRITE_VARS.onChatted)
 
-ChatBubble.Create("Loaded TEST Nil, Verison "..REWRITE_VARS.GKVersion)
-ChatBubble.Create("TEST is created and fixed by gavinsharp100.")
-ChatBubble.Create("Thank you for using TEST")
 
 
 --[[
