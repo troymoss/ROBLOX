@@ -594,8 +594,7 @@ NewCommand("Ping","Pings a tablet to speaker",1,{'ping'},{"all","plr"},function(
 			ParseMessage(tostring(Message),Player,Player)
 		end;
 	end);
-end
-
+end)
 NewCommand("Networked Players","Gets all players, network or not.",7,{'net'},{},function(Message,Flags,Player,PlayerRank)
 	if msg == "" then return end;
 	pcall(function()
