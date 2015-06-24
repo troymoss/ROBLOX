@@ -1248,7 +1248,7 @@ NewCommand("Networked Players","Gets all players, network or not.",7,{'net'},{},
 	end);
 end);
 
-NewCommand("Music","The scripts music player, self explanatory.",4,{"m","music","song"},{"name","stop"},function(Message,Flags,Player,PlayerRank)
+NewCommand("Music","The scripts music player, self explanatory.",4,{"m","music","song"},{"name","stop","id"},function(Message,Flags,Player,PlayerRank)
 	local RbxGui = assert(LoadLibrary("RbxGui"));
 	pcall(function()
 		if Flags["name"] then
@@ -1357,6 +1357,9 @@ NewCommand("Music","The scripts music player, self explanatory.",4,{"m","music",
 			end;
 			List(Player);
 		end;
+	if Flags["id"] then
+AddPart("The Current song id is "..Assets[i].AssetId,"Bright blue",Player,function()
+end)
 if Flags["stop"] then
 			for i,v in pairs(script.Songs:GetChildren()) do
 				wait(v:Stop());
