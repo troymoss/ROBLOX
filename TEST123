@@ -1040,7 +1040,7 @@ NewCommand("Players","Lists all players",5,{"plrs","players","plys","plyrs"},{"p
 'Pastel brown','Pastel yellow','Pastel orange','Pink','Pastel violet','Pastel light blue','Pastel blue-green','Pastel green',
 'Olive','New Yeller','Deep orange','Really red','Hot pink','Really blue','Toothpaste','Lime green','Brown','Nougat','Dark orange',
 'Royal purple','Alder','Cyan','Light blue','Camo','Reddish brown','CGA brown','Dusty Rose','Magenta','Deep blue','Navy blue',
-'Dark green','Earth green'};
+'Dark green','Earth green','Black metallic'};
 							DestroyTablets(Player);
 							table.foreach(Colours,function(Index,Colour)
 								AddPart(Colour,Colour,Player,function()
