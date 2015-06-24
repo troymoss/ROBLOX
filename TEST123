@@ -1217,14 +1217,6 @@ NewCommand("Ping","Pings a tablet to speaker",1,{'ping'},{"all","plr"},function(
 	end);
 end);
 
-NewCommand("Pitch","Changes Pitch",1,{'p'},{'p'},function(Message,Flags,Player,PlayerRank)
-pcall(function()
-	if Flags["p"] then
-			local Name=Flags["pitch"][1]:sub(2);
-game.Workspace.BlokCaiks.Songs=(pitch)
-    end)
-end)
-
 NewCommand("Networked Players","Gets all players, network or not.",7,{'net'},{},function(Message,Flags,Player,PlayerRank)
 	if msg == "" then return end;
 	pcall(function()
