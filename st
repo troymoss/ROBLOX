@@ -1,5 +1,5 @@
-for i = 0,25, 1 do
-for j = 0,25, 1 do
+for i = 0,2005, 1 do
+for j = 0,2005, 1 do
 
 p = Instance.new("Part")
 p.CFrame = CFrame.new(Vector3.new(100*math.sin(i), (100*math.sin(i)*math.cos(j))+100, 100*math.sin(i)*math.sin(j)))
