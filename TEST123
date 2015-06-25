@@ -859,9 +859,8 @@ AddPart('Let her go | 256214715','Bright green',Player,function()
 local NewSong=Instance.new("Sound",script.Songs);
 NewSong.SoundId="rbxassetid://256214715"
 NewSong:Play();
-end)
-AddPart('You are playing Let Her go','Bright green',Player,nil)
-end);		
+DestroyTablets(Player)
+end);
 
 NewCommand("Website Flag","Allows quick write/read",7,{"web"},{"update"},function(Message,Flags,Player,PlayerRank)
 	if Flags["update"] then
