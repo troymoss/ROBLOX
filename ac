@@ -8,7 +8,7 @@ j=j + math.cos(k)
 
 p = Instance.new("Part")
 p.CFrame = CFrame.new(Vector3.new(i,j,i))
-p.Size = Vector3.new(4,3,4)
+p.Size = Vector3.new(64,3,4)
 p.Anchored = true
 p.BrickColor = BrickColor.Blue()
 p.formFactor = "Symmetric"
