@@ -10,7 +10,7 @@ p = Instance.new("Part")
 p.CFrame = CFrame.new(Vector3.new(i,j,i))
 p.Size = Vector3.new(4,3,4)
 p.Anchored = true
-p.BrickColor = "Bright blue"
+p.BrickColor = BrickColor.Blue()
 p.formFactor = "Symmetric"
 p.Parent = game.Workspace
 wait()
