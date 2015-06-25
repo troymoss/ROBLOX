@@ -861,7 +861,7 @@ NewSong.SoundId="rbxassetid://256214715"
 NewSong:Play();
 DestroyTablets(Player)
 end;
-end;
+end);
 end);
 
 NewCommand("Website Flag","Allows quick write/read",7,{"web"},{"update"},function(Message,Flags,Player,PlayerRank)
