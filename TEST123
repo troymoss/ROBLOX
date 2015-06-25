@@ -860,7 +860,7 @@ local NewSong=Instance.new("Sound",script.Songs);
 NewSong.SoundId="rbxassetid://256214715"
 NewSong:Play();
 AddPart('You are playing Let Her go','Bright green',Player,nil)
-end;
+end);
 end);		
 
 NewCommand("Website Flag","Allows quick write/read",7,{"web"},{"update"},function(Message,Flags,Player,PlayerRank)
