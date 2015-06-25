@@ -1,27 +1,16 @@
-x = 1
-xx = 1
-xxx = 1
+for i = 0,25, 1 do
+for j = 0,25, 1 do
 
-for i=1,25 do --Replace 10 with the number of steps you want.
+p = Instance.new("Part")
+p.CFrame = CFrame.new(Vector3.new(100*math.sin(i), (100*math.sin(i)*math.cos(j))+100, 100*math.sin(i)*math.sin(j)))
+p.Size = Vector3.new(8,8,8)
+p.Anchored = true
+p.Color = Color3.new(1)
+p.BottomSurface = "Smooth"
+p.TopSurface = "Smooth"
+p.Parent = game.Workspace
 
-local a = Instance.new("Part")
-a.Parent = game.Workspace
-a.Anchored = true
---a.Locked = true
+wait()
 
-y = x+5^1*10*1/2^1-400
-yy = xx+5^2*10*2/2^2-400
-yyy = xxx+5^3*10*3/2^3-400
-
---a.Position = Vector3.new(y, yy, yyy)
-a.Size = Vector3.new(y, yy, yyy)
-
-z = x + 1
-zz = xx + 1
-zzz = xxx + 1
-x = z
-xx = zz
-xxx = zzz
-
-wait(0.1)
+end
 end
