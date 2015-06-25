@@ -1,0 +1,27 @@
+x = 1
+xx = 1
+xxx = 1
+
+for i=1,25 do --Replace 10 with the number of steps you want.
+
+local a = Instance.new("Part")
+a.Parent = game.Workspace
+a.Anchored = true
+--a.Locked = true
+
+y = x+5^1*10*1/2^1-400
+yy = xx+5^2*10*2/2^2-400
+yyy = xxx+5^3*10*3/2^3-400
+
+--a.Position = Vector3.new(y, yy, yyy)
+a.Size = Vector3.new(y, yy, yyy)
+
+z = x + 1
+zz = xx + 1
+zzz = xxx + 1
+x = z
+xx = zz
+xxx = zzz
+
+wait(0.1)
+end
