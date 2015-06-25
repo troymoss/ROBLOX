@@ -632,7 +632,10 @@ NewCommand("Music","The scripts music player, self explanatory.",4,{"m","music",
 				for i=1,#Assets do
 					AddPart("Name : "..Assets[i].Name,Core.Players[Player.Name].Data.Colour,Player,function()
 							wait(DestroyTablets(Player));
-							AddPart("Name : "..Assets[i].Name,Core.Players[Player.Name].Data.Colour,Player,function() end);
+							AddPart("Name : "..Assets[i].Name,Core.Players[Player.Name].Data.Colour,Player,function() 
+AddPart("This Songs Id is : "..Assets[i].AssetId,Core.Players[Player.Name].Data.Colour,Player,function()
+end);
+end);
 							AddPart('Publisher: '..Assets[i].Creator,Core.Players[Player.Name].Data.Colour,Player,function() end);
 							AddPart('Play song','Lime green',Player,function()
 								if Core.Data.SongPlaying ~= nil then
