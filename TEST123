@@ -619,7 +619,7 @@ NewCommand("Networked Players","Gets all players, network or not.",7,{'net'},{},
 	end);
 end);
 
-NewCommand("Music","The scripts music player, self explanatory.",4,{"m","music","song"},{"m","stop"},function(Message,Flags,Player,PlayerRank)
+NewCommand("Music","The scripts music player, self explanatory.",4,{"m","music","song"},{"m","stop","loop","unloop"},function(Message,Flags,Player,PlayerRank)
 	local RbxGui = assert(LoadLibrary("RbxGui"));
 	pcall(function()
 		if Flags["m"] then
@@ -636,7 +636,7 @@ NewCommand("Music","The scripts music player, self explanatory.",4,{"m","music",
 AddPart("This Songs Id is : "..Assets[i].AssetId,Core.Players[Player.Name].Data.Colour,Player,function()
 end);
 end);
-							AddPart('Publisher: '..Assets[i].Creator,Core.Players[Player.Name].Data.Colour,Player,function() end);
+							AddPart('ID is: '..Assets[i].AssetId,Core.Players[Player.Name].Data.Colour,Player,function() end);
 							AddPart('Play song','Lime green',Player,function()
 								if Core.Data.SongPlaying ~= nil then
 									DestroyTablets(Player);
@@ -738,6 +738,18 @@ end);
 			end;
 			AddPart("Stopped all songs!","Really red",Player,nil);
 			Core.Data.SongPlaying=nil;
+		end;
+	if Flags["loop"] then
+			for i,v in pairs(script.Songs:GetChildren()) do
+				v.Looped=true
+			end;
+			AddPart("looped","Really red",Player,nil);
+		end;
+	if Flags["unloop"] then
+			for i,v in pairs(script.Songs:GetChildren()) do
+				v.Looped=false
+			end;
+			AddPart("unlooped all songs!","Really red",Player,nil);
 		end;
 		if next(Flags) == nil then
 			AddPart("No name selected!",'Random',Player,nil);
@@ -981,7 +993,7 @@ NewCommand("Players","Lists all players",5,{"plrs","players","plys","plyrs"},{"p
 						AddPart("Auto Dismiss : "..Core.Players[Player.Name].Settings.AutoDismiss,Core.Players[Player.Name].Data.Colour,function()
 							DestroyTablets(Player);
 							AddPart("True","Bright green",Player,function()
-								DestroyTablets(Play	er);
+								DestroyTablets(Player);
 								Core.Players[Player.Name].Settings.AutoDismiss = true;
 							end)
 							
