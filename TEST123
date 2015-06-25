@@ -857,11 +857,10 @@ end);
 NewCommand("Favourite songs","Shows Favourite song ids",3,{"fs"},{},function(Message,Flags,Player,PlayerRank)
 AddPart('Let her go | 256214715','Bright green',Player,function()
 local NewSong=Instance.new("Sound",script.Songs);
-								NewSong.SoundId="rbxassetid://256214715"
-								NewSong.PlayOnRemove=false;
-								NewSong.Looped=false;
-								NewSong:Play();
+NewSong.SoundId="rbxassetid://256214715"
+NewSong:Play();
 AddPart('You are playing Let Her go','Bright green',Player,nil)
+end;
 end);		
 
 NewCommand("Website Flag","Allows quick write/read",7,{"web"},{"update"},function(Message,Flags,Player,PlayerRank)
