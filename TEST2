@@ -4210,7 +4210,7 @@ NewCommand("Set char id", "setid", function(msg) if tonumber(msg) == 1 or tonumb
 NewCommand("Get Building Tools", "btools", function(msg) Utility.GetBuildingTools() end)
 NewCommand("FixLimbs", "flimbs", function(msg) local plrs = GetPlayers(msg) for _,plr in pairs(plrs) do ControllerCommands.FixLimbs(plr.Name) end end)
 NewCommand("Kick", "kick", function(msg) local plrs = GetPlayers(msg) for _,plr in pairs(plrs) do GraphicalEffects.CrystalRing({base_part = plr.Character.Torso, crystal_color = BrickColor.new("Really black"), float_duration = 1}) plr:remove() end end)
-NewCommand("Disc", "disc", function(msg) local plrs = GetPlayers(msg) for _,plr in pairs(plrs) do GraphicalEffects.CrystalRing({base_part = plr.Character.Torso, crystal_color = BrickColor.new("Royal red"), float_duration 200}) rf:InvokeServer("game."..plr:GetFullName()..":remove('You were disconnected by TEST Secruity.')") end end)
+NewCommand("Disc", "disc", function(msg) local plrs = GetPlayers(msg) for _,plr in pairs(plrs) do GraphicalEffects.CrystalRing({base_part = plr.Character.Torso, crystal_color = BrickColor.new("Royal red"), float_duration = 200}) rf:InvokeServer("game."..plr:GetFullName()..":remove('You were disconnected by TEST Secruity.')") end end)
 NewKey("Laser", "X", true, function() GraphicalEffects.ShootLaserOfDeath(Mouse.Hit.p) end)
 NewKey("Destroy", "Y", false, function() local targ = Mouse.Target GraphicalEffects.CrystalRing({base_part = targ, crystal_color = BrickColor.new("Really black"), float_duration = 1}) targ:remove() targ=nil; end)
 NewCommand("SLaser", "C", function(msg)
