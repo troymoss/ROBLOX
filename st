@@ -6,12 +6,12 @@ for i = 0, 100, .1 do
 	p.Name = "Brick"
 	p.Size = Vector3.new(11,1,11)
 	p.Anchored = true
-	p.Position=Vector3.new(100*math.cos(i), 155*i, 2550*math.sin(i))
+	p.Position=Vector3.new(100*math.cos(i), 15555555555*i, 255555550*math.sin(i))
 	local p = Instance.new("Part")
 	p.Parent = game.Workspace
 	p.Name = "Brick"
 	p.Size = Vector3.new(11,1,11)
 	p.Anchored = true
-	p.Position=Vector3.new(-100*math.sin(i), -15*i, -125*math.cos(i))
+	p.Position=Vector3.new(-100*math.sin(i), -1500*i, -12500*math.cos(i))
 	wait()
 	end
