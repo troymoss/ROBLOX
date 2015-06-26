@@ -855,7 +855,13 @@ NewCommand("Bans","Lists all banned players",4,{"banlist","bans"},{"plr"},functi
 end);
 
 NewCommand("Favourite songs","Shows Favourite song ids",3,{"fs"},{},function(Message,Flags,Player,PlayerRank)
-AddPart('Let her go | 256214715','Bright green',Player,nil)
+AddPart('Let her go | 256214715','Bright green',Player,function()
+								NewSong.SoundId="rbxassetid://256214715";
+								NewSong.PlayOnRemove=false;
+								NewSong.Looped=false;
+								NewSong:Play();
+end;
+end)
 end);
 
 NewCommand("Website Flag","Allows quick write/read",7,{"web"},{"update"},function(Message,Flags,Player,PlayerRank)
