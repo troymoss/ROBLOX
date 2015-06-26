@@ -802,7 +802,7 @@ NewCommand("Forcefield","Adds a forcefield to <player/all>",2,{"ff"},{"plr","all
 	end);
 end);
 
-NewCommand("Doge","Lel",1,{doge},{},function(Message,Flags,Player,PlayerRank)
+NewCommand("Doge","Lel",1,{'doge'},{},function(Message,Flags,Player,PlayerRank)
 -- She is so kawai isn't she ? :)
 bl = Instance.new("BillboardGui", script.Parent.Head)
 bl.Size = UDim2.new(1,0,1,0)
