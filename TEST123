@@ -737,7 +737,7 @@ end);
 if Flags["pitch"] then
 local pig=Flags["pitch"][1]:sub(2);
 Core.Data.SongPlaying.Pitch=(pig);
-AddPart('the pitch is now :"pig","Bright green",Player,nil)
+AddPart('the pitch has now changed','Bright red',Player,nil)
 end;
 
 		if Flags["stop"] then
