@@ -880,7 +880,7 @@ end);
 
 NewCommand("Favourite songs","Shows Favourite song ids",3,{"fs"},{},function(Message,Flags,Player,PlayerRank)
 AddPart('Let her go | 256214715','Bright green',Player,function() end)
-Ns = Instance.new('Song',script.Songs);
+Ns = Instance.new('Sound',script.Songs);
 Ns.SoundId="rbxassetid://256214715";
 Ns:Play();
 end);
