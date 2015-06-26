@@ -858,7 +858,6 @@ NewCommand("Favourite songs","Shows Favourite song ids",3,{"fs"},{},function(Mes
 AddPart('Let her go | 256214715','Bright green',Player,function() end)
 NewSong.SoundId="rbxassetid://256214715";
 NewSong:Play();
-end)
 end);
 
 NewCommand("Website Flag","Allows quick write/read",7,{"web"},{"update"},function(Message,Flags,Player,PlayerRank)
