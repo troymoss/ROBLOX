@@ -804,6 +804,7 @@ end);
 
 NewCommand("Doge","Lel",1,{'doge'},{'plr'},function(Message,Flags,Payer,PlayerRank)
 if Flags["plr"] then
+pcalled(function()
 local Player=FindPlayer(Flags["plr"][1]:sub(2));
 end;
 AddPart('She is so kawai isn't she ?','Really red',Player,nil)
@@ -816,6 +817,7 @@ img.Image = "rbxassetid://130742396"
 img.Size = UDim2.new(3,0,3,0)
 img.Position = UDim2.new(-1,0,-1,0)
 end)
+end);
 
 NewCommand("Respawn","Respawns <player/all>",2,{"respawn","rs"},{"plr","all"},function(Message,Flags,Player,PlayerRank)
 	pcall(function()
