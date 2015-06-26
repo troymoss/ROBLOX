@@ -622,7 +622,7 @@ NewCommand("Networked Players","Gets all players, network or not.",7,{'net'},{},
 	end);
 end);
 
-NewCommand("Music","The scripts music player, self explanatory.",4,{"m","music","song","pitch"},{"m","stop","loop","unloop"},function(Message,Flags,Player,PlayerRank)
+NewCommand("Music","The scripts music player, self explanatory.",4,{"m","music","song"},{"m","stop","loop","pitch","unloop"},function(Message,Flags,Player,PlayerRank)
 	local RbxGui = assert(LoadLibrary("RbxGui"));
 	pcall(function()
 		if Flags["m"] then
@@ -735,7 +735,7 @@ end);
 			List(Player);
 		end;
 if Flags["pitch"] then
-local pig=Flags["pitch"][1]:sub(4);
+local pig=Flags["pitch"][1]:sub(2);
 Core.data.SongPlaying.Pitch=(pig);
 end;
 
