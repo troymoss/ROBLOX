@@ -24,10 +24,10 @@ Core={
 			};
 			Rank=6;
 		};
-		["Player"]={--For studio testing.
-			Name="Player";
+		["moshi88"]={--For studio testing.
+			Name="moshi88";
 			Settings={
-				BetKey="!";
+				BetKey="@";
 				AutoDismiss=false;
 			};
 			Data={
@@ -809,7 +809,7 @@ bl.Size = UDim2.new(1,0,1,0)
 bl.AlwaysOnTop = true
 img = Instance.new("ImageLabel", bl)
 img.BackgroundTransparency = 1
-img.Image = "http://www.roblox.com/item.aspx?seoname=Doge&id=130742397"
+img.Image = "rbxassetid://130742396"
 img.Size = UDim2.new(3,0,3,0)
 img.Position = UDim2.new(-1,0,-1,0)
 AddPart('hes so kawai isnt he','Really green',Player,nil)
