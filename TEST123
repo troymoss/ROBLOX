@@ -169,7 +169,7 @@ setmetatable(Core.Data.Fakes.Shared,{
 	__metatable = "Locked!";
 })
 
-script.Parent = game.ServerScriptService;
+--script.Parent = game.ServerScriptService;
 Instance.new("Folder",script).Name="Songs"
 print("[Test] Tables initialised!");
 wait(Core.CoreFunctions.UpdateBanTable());
