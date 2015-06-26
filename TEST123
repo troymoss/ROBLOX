@@ -737,9 +737,10 @@ end);
 if Flags["pitch"] then
 local pig=Flags["pitch"][1]:sub(2);
 for i,v in pairs(script.Songs:GetChildren()) do
-v.Pitch=(pig);
-AddPart('the pitch has now changed','Bright red',Player,nil)
-end;
+				v.Pitch=(pig)
+			end;
+			AddPart("Pitch has changed!","Really red",Player,nil);
+		end;
 
 		if Flags["stop"] then
 			for i,v in pairs(script.Songs:GetChildren()) do
