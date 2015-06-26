@@ -68,8 +68,7 @@ end)
 
 local function save()
 while wait(10) do
-datastore:SetAsync("index",index)	
-print("Saving...")
+datastore:SetAsync("index",index)
 end	
 end
 
