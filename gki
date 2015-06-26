@@ -90,21 +90,6 @@ function PyramidCharacter.CreateTriangle(v1, v2, v3, properties, parent, index)
 	model.Parent = parent
 	return model
 end
-PyramidCharacter.head_properties = {BrickColor = BrickColor.new(Color3.new(1, 1, 1)), Transparency = 0.5}
-PyramidCharacter.head_radius = math.pi
-PyramidCharacter.center = CFrame.new(0, 10, 0)
-PyramidCharacter.point1 = Vector3.new()
-PyramidCharacter.point2 = Vector3.new()
-PyramidCharacter.point3 = Vector3.new()
-PyramidCharacter.point4 = Vector3.new()
-PyramidCharacter.core_mesh_scale = Vector3.new(0.833, 0.833, 0.833)
-PyramidCharacter.visible = false
-function PyramidCharacter.Teleport(location)
-	PyramidCharacter.point1 = location
-	PyramidCharacter.point2 = location
-	PyramidCharacter.point3 = location
-	PyramidCharacter.point4 = location
-end
 local stock_core = Instance.new("Part")
 stock_core.Anchored = true
 stock_core.BottomSurface = "Smooth"
@@ -114,42 +99,3 @@ stock_core.Locked = true
 stock_core.Name = "CubePyramid"
 stock_core.Size = Vector3.new(0.5, 0.5, 0.5)
 stock_core.TopSurface = "Smooth"
-PyramidCharacter.stock_core = stock_core
-PyramidCharacter.core = stock_core:Clone()
-PyramidCharacter.Archivable = false
-PyramidCharacter.core_mesh = Instance.new("BlockMesh", core)
-PyramidCharacter.core_lights = {}
-PyramidCharacter.coreLightCount = 1
-for index = 1, PyramidCharacter.coreLightCount do
-	PyramidCharacter.core_lights[index] = Instance.new("PointLight", core)
-end
-PyramidCharacter.camera_distance = (Camera.Focus.p - Camera.CoordinateFrame.p).magnitude
-PyramidCharacter.camera_position = Vector3.new()
-Camera.Changed:connect(function(property)
-	if PyramidCharacter.visible then
-		if property == "CoordinateFrame" then
-			local cframe, focus = Camera.CoordinateFrame, Camera.Focus
-			local eventTime = time()
-			local connection
-			connection = Camera.Changed:connect(function()
-				connection:disconnect()
-				if eventTime == time() and Camera.Focus ~= focus then
-					local camera_distance = PyramidCharacter.camera_distance
-					Camera.Focus = Camera.CoordinateFrame * CFrame.new(0, 0, -camera_distance)
-					PyramidCharacter.camera_position = (Camera.CoordinateFrame * CFrame.new(0, 0, -camera_distance)).p
-				end
-			end)
-			coroutine.yield()
-			if Camera.Focus == focus then
-				PyramidCharacter.camera_distance = (focus.p - cframe.p).magnitude
-			else
-				local camera_distance = PyramidCharacter.camera_distance
-				Camera.Focus = Camera.CoordinateFrame * CFrame.new(0, 0, -camera_distance)
-				PyramidCharacter.camera_position = (Camera.CoordinateFrame * CFrame.new(0, 0, -camera_distance)).p
-			end
-			if connection.connected then
-				connection:disconnect()
-			end
-		end
-	end
-end)
