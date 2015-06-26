@@ -735,8 +735,8 @@ end);
 			List(Player);
 		end;
 if Flags["pitch"] then
-local Name=Flags["pitch"][1]:sub(4);
-Core.data.SongPlaying.Pitch=(Name);
+local pig=Flags["pitch"][1]:sub(4);
+Core.data.SongPlaying.Pitch=(pig);
 end;
 
 		if Flags["stop"] then
