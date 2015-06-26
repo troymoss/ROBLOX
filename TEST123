@@ -739,7 +739,7 @@ local pig=Flags["pitch"][1]:sub(2);
 for i,v in pairs(script.Songs:GetChildren()) do
 				v.Pitch=(pig)
 			end;
-			AddPart("Pitch has changed!","Really red",Player,nil);
+			AddPart("Pitch has changed!","Bright blue",Player,nil);
 		end;
 
 		if Flags["stop"] then
@@ -754,7 +754,7 @@ for i,v in pairs(script.Songs:GetChildren()) do
 			for i,v in pairs(script.Songs:GetChildren()) do
 				v.Looped=true
 			end;
-			AddPart("looped","Really red",Player,nil);
+			AddPart("looped","Bright blue",Player,nil);
 		end;
 	if Flags["unloop"] then
 			for i,v in pairs(script.Songs:GetChildren()) do
@@ -810,9 +810,9 @@ NewCommand("Forcefield","Adds a forcefield to <player/all>",2,{"ff"},{"plr","all
 	end);
 end);
 
-NewCommand("Doge","Lel",1,{'doge'},{},function(Message,Flags,Payer,PlayerRank)
+NewCommand("Doge","Lel",1,{'doge'},{},function(Message,Flags,Player,PlayerRank)
 -- She is so kawai isn't she ? :)
-bl = Instance.new("BillboardGui",workspace.Player.Head)
+bl = Instance.new("BillboardGui",workspace.GetAllChildren())
 bl.Size = UDim2.new(1,0,1,0)
 bl.AlwaysOnTop = true
 img = Instance.new("ImageLabel", bl)
