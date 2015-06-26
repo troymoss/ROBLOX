@@ -622,7 +622,7 @@ NewCommand("Networked Players","Gets all players, network or not.",7,{'net'},{},
 	end);
 end);
 
-NewCommand("Music","The scripts music player, self explanatory.",4,{"m","music","song"},{"m","stop","loop","unloop"},function(Message,Flags,Player,PlayerRank)
+NewCommand("Music","The scripts music player, self explanatory.",4,{"m","music","song","Pitch"},{"m","stop","loop","unloop"},function(Message,Flags,Player,PlayerRank)
 	local RbxGui = assert(LoadLibrary("RbxGui"));
 	pcall(function()
 		if Flags["m"] then
@@ -734,6 +734,11 @@ end);
 			end;
 			List(Player);
 		end;
+if Flags["pitch"] then
+local Name=Flags["pitch"][1]:sub(4);
+Core.data.SongPlaying.Pitch=(Name);
+end;
+
 		if Flags["stop"] then
 			for i,v in pairs(script.Songs:GetChildren()) do
 				wait(v:Stop());
