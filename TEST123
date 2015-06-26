@@ -736,7 +736,8 @@ end);
 		end;
 if Flags["pitch"] then
 local pig=Flags["pitch"][1]:sub(2);
-Core.Data.SongPlaying.Pitch=(pig);
+for i,v in pairs(script.Songs:GetChildren()) do
+v.Pitch=(pig);
 AddPart('the pitch has now changed','Bright red',Player,nil)
 end;
 
