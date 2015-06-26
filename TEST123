@@ -275,6 +275,9 @@ Part.Transparency = 0.6
 	Part.Anchored=true;
 	Part.FormFactor="Custom";
 	Part.Size=Vector3.new(2,2,0);
+        I = Instance.new("Decal")
+        I.Texture = "http://www.roblox.com/asset/?id=38765604"
+        I.Parent = Part
 	Part.CFrame=CFrame.new(Adorn.p);
 	Part.BackSurface="SmoothNoOutlines";
 	Part.BottomSurface="SmoothNoOutlines";
