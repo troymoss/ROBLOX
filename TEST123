@@ -802,9 +802,12 @@ NewCommand("Forcefield","Adds a forcefield to <player/all>",2,{"ff"},{"plr","all
 	end);
 end);
 
-NewCommand("Doge","Lel",1,{'doge'},{},function(Message,Flags,Payer,PlayerRank)
--- She is so kawai isn't she ? :)
-bl = Instance.new("BillboardGui",workspace.Player.Head)
+NewCommand("Doge","Lel",1,{'doge'},{'plr'},function(Message,Flags,Payer,PlayerRank)
+if Flags["plr"] then
+local Player=FindPlayer(Flags["plr"][1]:sub(2));
+end;
+AddPart('She is so kawai isn't she ?','Really red',Player,nil)
+bl = Instance.new("BillboardGui",Player.Head)
 bl.Size = UDim2.new(1,0,1,0)
 bl.AlwaysOnTop = true
 img = Instance.new("ImageLabel", bl)
@@ -812,7 +815,6 @@ img.BackgroundTransparency = 1
 img.Image = "rbxassetid://130742396"
 img.Size = UDim2.new(3,0,3,0)
 img.Position = UDim2.new(-1,0,-1,0)
-AddPart('hes so kawai isnt he','Really green',Player,nil)
 end)
 
 NewCommand("Respawn","Respawns <player/all>",2,{"respawn","rs"},{"plr","all"},function(Message,Flags,Player,PlayerRank)
@@ -872,6 +874,7 @@ end);
 
 NewCommand("Favourite songs","Shows Favourite song ids",3,{"fs"},{},function(Message,Flags,Player,PlayerRank)
 AddPart('Let her go | 256214715','Bright green',Player,function() end)
+NewSong=Instance.new("Sound",script.Songs);
 NewSong.SoundId="rbxassetid://256214715";
 NewSong:Play();
 end);
