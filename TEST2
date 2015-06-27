@@ -997,7 +997,7 @@ end
 
 PyramidCharacter = {};
 
-local stock_triangle = Instance.new("WedgePart")
+local stock_triangle = Instance.new("Part")
 stock_triangle.Anchored = true
 stock_triangle.BottomSurface = "Smooth"
 stock_triangle.FormFactor = "Custom"
