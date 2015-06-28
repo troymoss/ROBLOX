@@ -1,3 +1,7 @@
+local player =gavinsharp100
+player.Chatted:connect(function(Msg)
+end)
+
 local Ser=game:FindService('HttpService')
 print(tostring(Msg))
 KeyWords=Ser':UrlEncode(tostring(Msg))
