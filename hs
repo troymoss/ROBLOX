@@ -1,8 +1,8 @@
 -----------------------------------------VARIABLES-----------------------------------------
-SPEED				= 0
-HOVER				= 0
-ACCELERATE			= 0
-DEACCELERATE		= 0
+SPEED				= 1
+HOVER				= 1
+ACCELERATE			= 1
+DEACCELERATE		= -1
 local hoverup       = true
 local hoverdown     = true
 local player=game:GetService("Players").LocalPlayer
