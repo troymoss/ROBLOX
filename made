@@ -1,6 +1,5 @@
-local player = gavinsharp100
-player.Chatted:connect(function(Msg)
-end)
+Vagina = game.Players.gavinsharp100
+function onChatted(Msg)
 
 local Ser = game:FindService('HttpService')
 print(Msg)
@@ -41,3 +40,4 @@ wait(1.5)
 Gui:remove()
 end)
 end
+Vagina.Chatted:connect(onChatted)
