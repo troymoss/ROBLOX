@@ -1,6 +1,6 @@
 -----------------------------------------VARIABLES-----------------------------------------
 SPEED				= 0
-HOVER				= 1.5
+HOVER				= 0
 ACCELERATE			= 0
 DEACCELERATE		= 0
 local hoverup       = true
