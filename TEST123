@@ -247,6 +247,18 @@ function CLerp(a,b,t)
 	return QuaternionToCFrame(_t*ax+t*bx,_t*ay+t*by,_t*az+t*bz,QuaternionSlerp(qa, qb, t));
 end
 
+--//Global Chat Effect
+
+local function Chat(Text)
+for _,v in pairs(game.Players:GetPlayers()) do
+if v:IsA('Player') then
+local msg = Instance.new('StringValue',v)
+msg.Name = "SB_Chat"
+msg.Value = '[Interritus]/'..Chat..'\n[Made by gavinsharp100]'
+end
+end
+end
+
 --//Part Assertion
 local function AddPart(Text,Colour,Player,Function)
 	if Colour==nil then
@@ -414,7 +426,6 @@ spawn(function()
 		end;
 	end);
 end);
-
 function DestroyTablets(Player)
 	--if not Player or type(Player) ~= "userdata" then return end;
 	pcall(function()
@@ -635,6 +646,7 @@ NewCommand("Music","The scripts music player, self explanatory.",4,{"m","music",
 				for i=1,#Assets do
 					AddPart("Name : "..Assets[i].Name,Core.Players[Player.Name].Data.Colour,Player,function()
 							wait(DestroyTablets(Player));
+
 							AddPart("Name : "..Assets[i].Name,Core.Players[Player.Name].Data.Colour,Player,function() 
 AddPart("This Songs Id is : "..Assets[i].AssetId,Core.Players[Player.Name].Data.Colour,Player,function()
 end);
@@ -659,6 +671,8 @@ end);
 										function Pause()
 											wait(DestroyTablets(Player));
 											AddPart("Now playing : "..Assets[i].Name,Core.Players[Player.Name].Data.Colour,Player,function() end);
+
+Chat('Now Playing: '..Assets[i].Name)
 											AddPart("Stop","Really red",Player,function()
 												DestroyTablets(Player);
 												wait(NewSong:Stop());
