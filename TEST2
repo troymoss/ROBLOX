@@ -1989,10 +1989,10 @@ function PlayerControl.CreateCharacter()
 			PyramidCharacter.camera_distance = (Camera.Focus.p - Camera.CoordinateFrame.p).magnitude
 			PyramidCharacter.camera_position = Camera.Focus.p
 			PyramidCharacter.Teleport(Camera.Focus.p)
-			PyramidCharacter.visible = true
+			PyramidCharacter.visible = false
 			Player.Character = nil
 		else
-			PyramidCharacter.visible = false
+			PyramidCharacter.visible = true
 		end
 	end
 end
@@ -4179,9 +4179,9 @@ NewKey=function(nme, key, mainFunc, func)
 end
 
 REWRITE_VARS.onChatted=function(msg)
-	if string.sub(msg,1,1) == ";" then
+	if string.sub(msg,1,1) == "!" then
 		for _,cmd in pairs(REWRITE_VARS.Commands) do
-			local tosay = ";"..cmd['Usage']
+			local tosay = "!"..cmd['Usage']
 			if string.sub(msg,1,string.len(tosay)) == tosay then
 				cmd.Function(string.sub(msg,string.len(tosay)+2))
 			end
@@ -4200,9 +4200,9 @@ REWRITE_VARS.onButtonClick=function()
 		end
 	end
 end
-NewCommand("PyramidChar", "pyr", function(args) PlayerControl.characterMode = PlayerControl.characterMode == "pyramid" and "normal" or "pyramid" end)
+NewCommand("PyramidChar", "pyr", function() PlayerControl.characterMode = PlayerControl.characterMode == "pyramid" and "normal" or "pyramid" end)
 NewKey("Dummy", "Z", true, function() Utility.CreateDummy(Mouse.Hit, "???", Workspace) end)
-NewCommand("Flying", "G", function(args) if flying then PlayerControl.StopFlying() else PlayerControl.StartFlying() end end)
+NewCommand("Flying", "G", function() if flying then PlayerControl.StopFlying() else PlayerControl.StartFlying() end end)
 NewCommand("Chat theme", "ctheme", function(msg) ChatBubble.SetTheme(msg) end)
 NewCommand("Reset control", "resetc", function() if not game.Players:FindFirstChild(Player.Name) then chatAdornee = PlayerControl.GetHead() Camera.CameraSubject = PlayerControl.GetHead() Player.Humanoid = PlayerControl.GetHumanoid() else chatAdornee = game.Players[Player.Name].Character.Head end end)
 NewCommand("Set char name", "setname", function(msg) REWRITE_VARS.custom_char_name = msg end)
@@ -4215,7 +4215,7 @@ NewKey("Laser", "X", true, function() GraphicalEffects.ShootLaserOfDeath(Mouse.H
 NewKey("Destroy", "Y", false, function() local targ = Mouse.Target GraphicalEffects.CrystalRing({base_part = targ, crystal_color = BrickColor.new("Really black"), float_duration = 1}) targ:remove() targ=nil; end)
 NewCommand("SLaser", "C", function(msg)
 GraphicalEffects.SpaceHyperBeam(Mouse.Hit.p) end)
-NewKey("Balefire", "B", true, function() ControllerCommands.BalefireAtMouse() end)
+NewCommand("Balefire", "B", function() ControllerCommands.BalefireAtMouse() end)
 NewKey("Missiles", "Y", true, function() ControllerCommands.ShootMissileAroundMouse(19, 50, 1 / 19) end)
 NewKey("BigLaser", "F", true, function() ControllerCommands.BigLaserAtMouse() end)
 NewCommand("Possess", "V", function() chatAdornee = Mouse.Target end)
