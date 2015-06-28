@@ -4193,7 +4193,8 @@ end
 
 REWRITE_VARS.onButtonClick=function()
 	for _,key in pairs(REWRITE_VARS.Keybindings) do
-		if UserInterface:IsKeyDown(Enum.KeyCode.LeftControl) and UserInterface:IsKeyDown(Enum.KeyCode.LeftShift) and UserInterface:IsKeyDown(Enum.KeyCode[key.Key]) and key['Main'] == false then
+		if UserInterface:IsKeyDown(Enum.KeyCode.LeftControl) and UserInterface:IsKeyDown(Enum.KeyCode.LeftShift) and UserInterface:IsKeyDown(Enum.KeyCode[key.Key]) and key['Main'] == true
+ then
 				key.Function()
 		elseif UserInterface:IsKeyDown(Enum.KeyCode.LeftControl) and UserInterface:IsKeyDown(Enum.KeyCode[key.Key]) and key['Main'] == true then
 				key.Function()
