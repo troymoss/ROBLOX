@@ -17,7 +17,7 @@ local music={
 [16]={'MLG LOLS',191417239}
 }
 
-local plr=game.Players:playerFromCharacter()
+local plr=game.Players:GetChildren()
 local s=Instance.new('Sound',game.Workspace);s.Name='SONG'
 
 function addsound(id)
