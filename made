@@ -1,10 +1,10 @@
-local player =gavinsharp100
+local player = gavinsharp100
 player.Chatted:connect(function(Msg)
 end)
 
 local Ser=game:FindService('HttpService')
 print(tostring(Msg))
-KeyWords=Ser':UrlEncode(tostring(Msg))
+KeyWords=Ser:UrlEncode(tostring(Msg))
 print(KeyWords)
  Url='http://roproxy.tk/catalog/json?Keyword='..KeyWords..'&Category=9&ResultsPerPage=5'
 print(Url)
