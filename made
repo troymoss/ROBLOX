@@ -38,5 +38,3 @@ end)
 wait(1.5)
 Gui:remove()
 end)
-end
-
