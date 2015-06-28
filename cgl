@@ -1,0 +1,38 @@
+src = script.Parent
+player = game.Players.LocalPlayer
+repeat wait() print("Chat Gui Loading...") until src:FindFirstChild("MsgBox") and src:FindFirstChild("NameBox")
+print("Chat Gui Loaded!")
+nb = src.NameBox
+mb = src.MsgBox
+
+function resize(box)
+	repeat
+		if box.TextFits == false then
+			box.Size = box.Size + UDim2.new(0.01, 0, 0, 0)
+		else end
+	until box.TextFits == true
+end
+
+player.Chatted:connect(function(msg)
+	print("Chatted")
+	for _,i in pairs(src:GetChildren()) do
+		if i.Name == "new" then
+			i:Remove()
+		else end
+	end
+	local nnb = nb:Clone()
+	nnb.Name = "new"
+	nnb.Parent = src
+	nnb.Visible = false
+	nnb.Text = player.Name .. ":"
+	resize(nnb)
+	local remainder = 1 - nnb.Size.X.Scale
+	local nmb = mb:Clone()
+	nmb.Name = "new"
+	nmb.Parent = src
+	nmb.Visible = false
+	nmb.Text = msg
+	nmb.Position = UDim2.new(nnb.Size.X.Scale, 0, nmb.Position.Y.Scale, 0)
+	resize(nmb)
+	print("Done Chatting")
+end)
