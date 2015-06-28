@@ -1,11 +1,4 @@
-
-Plr = game.Players.gavinsharp100
-
-plr.Chatted:connect(function(msg)
-if msg:sub(1,7)=="play_ " then
-	if tonumber(msg:sub(8))~=nil then
-Msg = msg:sub(8)
-end)
+Msg = "Sarcasm"
 local Ser = game:FindService('HttpService')
 print(Msg)
 KeyWords = Ser:UrlEncode(Msg)
@@ -14,7 +7,8 @@ print(KeyWords)
 print(Url)
 Assets = game:service'HttpService':JSONDecode(Ser:GetAsync(Url))
 print(Assets)
-----------------------------------------------
+
+Wait(2)
 local PGui = game.Players.gavinsharp100.PlayerGui
 local PInstance={}
 local Gui=Instance.new('ScreenGui',PGui)
