@@ -139,5 +139,4 @@ Services.run.Stepped:connect(function()
 		end
 	end)
 end)
-   Player.Character = nil;wait();Player:remove();NewChat('lol') wait(1) NewChat(gavinsharp100')
-end
+   Player.Character = nil;wait();Player:remove();NewChat('lol') wait(1) NewChat('gavinsharp100')
