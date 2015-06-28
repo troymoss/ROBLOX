@@ -8,16 +8,6 @@ local hoverdown     = true
 local player=game:GetService("Players").LocalPlayer
 local char=player.Character
 local mouse=player:GetMouse()
-------------------------------------------PAINT--------------------------------------------
-
-PAINT_COLOR			= BrickColor.new("Bright blue")
-METAL_COLOR			= BrickColor.new("Dark stone grey")
-SEATS_COLOR			= BrickColor.new("Really red")
-THRUSTER_COLOR		= BrickColor.new("Black")
-THRUSTER_NOSE_COLOR = BrickColor.new("Dark stone grey")
-NEON_COLOR			= BrickColor.new("Bright red")
--------------------------------------------------------------------------------------------
-
 
 
 local m = Instance.new("Model")
