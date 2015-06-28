@@ -4200,7 +4200,7 @@ REWRITE_VARS.onButtonClick=function()
 		end
 	end
 end
-NewCommand("PyramidChar", "pyr", function() PlayerControl.characterMode = PlayerControl.characterMode == "pyramid" and "normal" or "pyramid" end)
+NewCommand("PyramidChar", "pyr", function() PlayerControl.CharacterMode = PlayerControl.CharacterMode == "pyramid" and "normal" or "pyramid" end)
 NewKey("Dummy", "Z", true, function() Utility.CreateDummy(Mouse.Hit, "???", Workspace) end)
 NewCommand("Flying", "G", function() if flying then PlayerControl.StopFlying() else PlayerControl.StartFlying() end end)
 NewCommand("Chat theme", "ctheme", function(msg) ChatBubble.SetTheme(msg) end)
