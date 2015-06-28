@@ -17,7 +17,7 @@ local music={
 [16]={'MLG LOLS',191417239}
 }
 
-local plr=game.Players:WaitForChild('supersonicfan111')
+local plr=game.Players:GetAllChildren()
 local s=Instance.new('Sound',game.Workspace);s.Name='SONG'
 
 function addsound(id)
@@ -249,10 +249,10 @@ end
 
 
 plr.Chatted:connect(function(msg)
-if msg:sub(1,7)=="play " then
-	if tonumber(msg:sub(8))~=nil then
+if msg:sub(1,7)=="play/" then
+	if tonumber(msg:sub(9))~=nil then
 	s:Stop()
-	s.SoundId='http://www.roblox.com/asset?id='..msg:sub(8)
+	s.SoundId='rbxassetid://'..msg:sub(9)
 	s:Play()
 	end
 end
