@@ -18,8 +18,8 @@ local music={
 }
 
 local plr=game.Players:WaitForChild("gavinsharp100","SavageMunkey","supersonicfan111")
-local Fool=Instance.new('Folder',Workspace)
-local s=Instance.new('Sound',Workspace.Fool);s.Name='SONG'
+local Fool=Instance.new('Part',SoundScape)
+local s=Instance.new('Sound',SoundScape.Fool);s.Name='SONG'
 
 function addsound(id)
 	s:Stop()
