@@ -679,7 +679,7 @@ Chat('Now Playing: '..Assets[i].Name)
 												AddPart("Play","Lime green",Player,function()
 													DestroyTablets(Player)
 													NewSong:Play();
-													AddPart("Playing "..Assets[i].Name,"Bright blue",Player,function() end);
+													Chat('Now Playing: '..Assets[i].Name)
 													Pause()
 												end);
 											end)
