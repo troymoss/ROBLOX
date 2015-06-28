@@ -670,15 +670,8 @@ end);
 										Core.Data.SongPlaying={ID=Assets[i].AssetId,Name=Assets[i].Name};
 										function Pause()
 											wait(DestroyTablets(Player));
-											AddPart("Now playing : "..Assets[i].Name,Core.Players[Player.Name].Data.Colour,Player,function() end);
-
+										
 Chat('Now Playing: '..Assets[i].Name)
-											AddPart("Stop","Really red",Player,function()
-												DestroyTablets(Player);
-												wait(NewSong:Stop());
-												NewSong:Destroy();
-												AddPart("Song stopped","Really red",Player,nil);
-											end)
 											AddPart("Pause","Bright orange",Player,function()
 												DestroyTablets(Player);
 												NewSong:Pause();
