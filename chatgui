@@ -1,5 +1,5 @@
 function NewLabel(parent, msg, player)
-    newchatline = Instance.new("TextLabel", ServerScriptStorage)
+    newchatline = Instance.new("TextLabel", parent)
     newchatline.Text = player.Name.. ": " ..msg
     newchatline.Size = UDim2.new(1,0,0,15)
     newchatline.Position = UDim2.new(0,0,1,-15)
