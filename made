@@ -41,3 +41,4 @@ Gui:remove()
 end)
 end
 Vagina.Chatted:connect(onChatted)
+end
