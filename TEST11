@@ -63,7 +63,7 @@ function open_gui()
 		local frame=Instance.new('Frame',gui);frame.Name="Frame"
 		frame.Size=UDim2.new(0,400,0,150)
 		frame.Position=UDim2.new(0.5,-200,0.5,-75)
-		frame.BackgroundColor3=Color3.new(0,0,0)
+		frame.BackgroundColor3 = BrickColor.Random().
 		frame.BackgroundTransparency=0.5
 		frame.BorderSizePixel=0
 		local pos=0
@@ -114,7 +114,7 @@ function open_gui()
 			choice.Size=UDim2.new(1,0,0,20)
 			choice.BackgroundColor3=Color3.new(154/255,154/255,154/255)
 			choice.BackgroundTransparency=1
-			choice.TextColor3=Color3.new(1,1,1)
+			choice.TextColor3 = BrickColor.Random().
 			choice.Text=v[1]
 			choice.Name=v[2]
 			choice.BorderSizePixel=0
