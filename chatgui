@@ -1,0 +1,40 @@
+function NewLabel(parent, msg, player)
+    newchatline = Instance.new("TextLabel", ServerScriptStorage)
+    newchatline.Text = player.Name.. ": " ..msg
+    newchatline.Size = UDim2.new(1,0,0,15)
+    newchatline.Position = UDim2.new(0,0,1,-15)
+    newchatline.Font = "SourceSansBold"
+    newchatline.TextColor3 = Color3.new(1,1,1)
+    newchatline.TextStrokeTransparency = 0
+    newchatline.BackgroundTransparency = 1
+    newchatline.BorderSizePixel = 0
+    newchatline.FontSize = "Size14"
+    newchatline.TextXAlignment = "Left"
+    newchatline.TextYAlignment = "Top"
+    newchatline.ClipsDescendants = true
+    newchatline.Name = "line1"
+end
+ 
+function UpdateOldLabels(Parent)
+    for i,v in pairs(Parent:GetChildren()) do
+        if v.Name:sub(1,4):lower() == "line" then
+            local LineNumber = v.Name:sub(5)
+            if LineNumber == "12" then
+                v:Destroy()
+            else
+                v.Name = "line"..tostring(tonumber(LineNumber) + 1)
+                v.Position = v.Position - UDim2.new(0,0,0,15)
+            end
+        end
+    end
+end
+ 
+game:GetService("Players").PlayerAdded:connect(function(player)
+    player.Chatted:connect(function(msg)
+        for _,v in ipairs(game:GetService("Players"):GetChildren()) do
+            UpdateOldLabels(v:WaitForChild("PlayerGui").ScreenGui.Frame)
+            UpdateOldLabels(game:GetService("StarterGui").ScreenGui.Frame)
+            NewLabel(v:WaitForChild("PlayerGui").ScreenGui.Frame, msg, player)
+            NewLabel(game:GetService("StarterGui").ScreenGui.Frame, msg, player)
+    end)
+end)
