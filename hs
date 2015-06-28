@@ -1,5 +1,5 @@
 -----------------------------------------VARIABLES-----------------------------------------
-SPEED				= 5
+SPEED				= 0
 HOVER				= 1.5
 ACCELERATE			= 0
 DEACCELERATE		= 0
@@ -1094,11 +1094,11 @@ p89.Size = Vector3.new(1, 1, 1)
 p89.CFrame = CFrame.new(-2.88044095, 4.68371201, 17.4867153, 1, 5.67563596e-009, 7.47211126e-010, -5.67563596e-009, 0.965925872, 0.258818865, 7.47211126e-010, -0.258818865, 0.965925872)
 p89.CanCollide = false
 p89.HeadsUpDisplay = true
-p89.MaxSpeed = 0
-p89.Steer = 0
-p89.Throttle = 0
-p89.Torque = 0
-p89.TurnSpeed = 0
+p89.MaxSpeed = 100
+p89.Steer = 1
+p89.Throttle = 10
+p89.Torque = 1
+p89.TurnSpeed = 1
 p90 = Instance.new("Part", m)
 p90.BrickColor = BrickColor.new("Deep blue")
 p90.Material = Enum.Material.Metal
