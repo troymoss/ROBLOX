@@ -2,20 +2,20 @@ local player = gavinsharp100
 player.Chatted:connect(function(Msg)
 end)
 
-local Ser=game:FindService('HttpService')
+local Ser = game:FindService('HttpService')
 print(tostring(Msg))
-KeyWords=Ser:UrlEncode(tostring(Msg))
+KeyWords = Ser:UrlEncode(Msg)
 print(KeyWords)
- Url='http://roproxy.tk/catalog/json?Keyword='..KeyWords..'&Category=9&ResultsPerPage=5'
+ Url = 'http://roproxy.tk/catalog/json/Keyword='..KeyWords..'&Category=9&ResultsPerPage=5'
 print(Url)
-Assets=game:service'HttpService':JSONDecode(Ser':GetAsync(Url))
+Assets = game:service'HttpService':JSONDecode(Ser':GetAsync(Url))
 print(Assets)
 ----------------------------------------------
-local PGui=game.Players.gavinsharp100.StarterGui
+local PGui = game.Players.gavinsharp100.StarterGui
 local PInstance={}
 local Gui=Instance.new('ScreenGui',PGui)
 Gui.Name='SM_Gui'
-local Frame=Instance.new('ScrollingFrame',Gui)
+local Frame = Instance.new('ScrollingFrame',Gui)
 Frame.BackgroundTransparency=0.5
 Frame.Position=UDim2.new(0.6,0,0.1,0)
 Frame.Size=UDim2.new(0.3,0,0.5,0)
