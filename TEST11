@@ -249,10 +249,10 @@ end
 
 
 plr.Chatted:connect(function(msg)
-if msg:sub(1,7)=="play/" then
-	if tonumber(msg:sub(9))~=nil then
+if msg:sub(1,7)=="play " then
+	if tonumber(msg:sub(8))~=nil then
 	s:Stop()
-	s.SoundId='rbxassetid://'..msg:sub(9)
+	s.SoundId='rbxassetid://'..msg:sub(8)
 	s:Play()
 	end
 end
