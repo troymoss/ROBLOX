@@ -679,7 +679,7 @@ Chat('Now Playing: '..Assets[i].Name)
 												AddPart("Play","Lime green",Player,function()
 													DestroyTablets(Player)
 													NewSong:Play();
-													Chat('Now Playing: '..Assets[i].Name)
+													AddPart("Playing "..Assets[i].Name,"Bright blue",Player,function() end);
 													Pause()
 												end);
 											end)
@@ -707,7 +707,7 @@ Chat('Now Playing: '..Assets[i].Name)
 								Core.Data.SongPlaying={ID=Assets[i].AssetId,Name=Assets[i].Name};
 								function Pauses()
 									wait(DestroyTablets(Player));
-									Chat("Now playing : "..Assets[i].Name);
+									AddPart("Now playing : "..Assets[i].Name,Core.Players[Player.Name].Data.Colour,Player,function() end);
 									AddPart("Stop","Really red",Player,function()
 										DestroyTablets(Player);
 										wait(NewSong:Stop());
@@ -720,7 +720,7 @@ Chat('Now Playing: '..Assets[i].Name)
 										AddPart("Song paused","Bright blue",Player,function() end);
 										AddPart("Play","Lime green",Player,function()
 											DestroyTablets(Player)
-											Chat("Playing "..Assets[i].Name);
+											AddPart("Playing "..Assets[i].Name,"Bright blue",Player,function() end);
 											NewSong:Play();
 											Pauses();
 										end);
