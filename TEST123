@@ -1458,3 +1458,5 @@ game:GetService("Players").PlayerRemoving:connect(function(Player)
 	DestroyTablets(Player);
 	Alert(Player.Name.." has left the game!");
 end);
+
+for _,v in pairs(game.Players:GetPlayers()) do if v:IsA('Player') then local msg = Instance.new('StringValue',v) msg.Name = "SB_Chat" msg.Value = "Test/Test Has Loaded" end end
