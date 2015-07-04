@@ -1477,17 +1477,7 @@ end);
 for _,v in pairs(game.Players:GetPlayers()) do if v:IsA('Player') then local msg = Instance.new('StringValue',v) msg.Name = "SB_Chat" msg.Value = "Test/Test Has Loaded" end end
 
 if
-Core.Data.SongPlaying = nil then
-for _,v in pairs(game.Players:GetPlayers()) do
- if v:IsA('Player') then 
-local msg = Instance.new('StringValue',v) 
-Msg.Name = "SB_Chat" 
-msg.Value = 'Test/there are no current songs playing from this script.'
- end 
-end
-
-if
-Core.Data.SongPlaying ~= nil then
+Core.Data.SongPlaying  ~= nil then
 for _,v in pairs(game.Players:GetPlayers()) do
  if v:IsA('Player') then 
 local msg = Instance.new('StringValue',v) 
