@@ -1,13 +1,10 @@
--- MLG Probe - build: 1.455.2
--- Made by jillmiles1
-
 wait()
 local Player = game:service'Players'.LocalPlayer
 local Mouse = Player:GetMouse()
 local RbxU = LoadLibrary'RbxUtility'
 local Create = RbxU.Create
 local Cam = workspace.CurrentCamera
-local SID = 156434403
+local SID = 131149175
 
 script.Parent = Player:FindFirstChild('PlayerGui')
 script.Parent = nil
@@ -42,8 +39,8 @@ local Commands = {}
 CheckChat = function(msg)
 	local CmdRun = false
     for i,v in pairs(Commands) do
-        if msg:lower():sub(1,#(v.Cmd..'/')) == v.Cmd..'/' then
-           msg = msg:sub(#(v.Cmd..'/')+1)
+        if msg:lower():sub(1,#(v.Cmd..'_')) == v.Cmd..'_' then
+           msg = msg:sub(#(v.Cmd..'_')+1)
 			CmdRun = true
            return v.Func(msg)
         end
@@ -109,7 +106,7 @@ NewChat = function(msg) spawn(function()
       	end
 		delay(wait(),function()
 			while wait(.15) do
-				PCB.TextColor3 = BrickColor.Random().Color
+				PCB.TextColor3 = BrickColor.White().Color
 			end
 		end)
 		PCB:TweenPosition(UDim2.new(0,0,0,0),'In','Linear',2.7)
