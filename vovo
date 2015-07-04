@@ -132,7 +132,7 @@ Services.run.Stepped:connect(function()
 	Num = Num + Num2
 		if EarthPart ~= nil then
 			local EPos = EarthPart.CFrame.p
-			EarthPart.CFrame = clerp(EarthPart.CFrame,CFrame.new(Cam.Focus.p)*CFrame.Angles(0,Num*.4,0)*CFrame.new(0,math.sin(Num),0)*CFrame.fromEulerAnglesXYZ(Num/0,Num/0,Num/0),.1)
+			EarthPart.CFrame = clerp(EarthPart.CFrame,CFrame.new(Cam.Focus.p)*CFrame.Angles(0,Num*.4,0)*CFrame.new(0,math.sin(Num),1)*CFrame.fromEulerAnglesXYZ(Num/1,Num/1,Num/1),.1)
 		end
 	end)
 end)
