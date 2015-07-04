@@ -740,12 +740,12 @@ msg.Value = 'Test/A song is playing : "..Core.Data.SongPlaying.Name.." :3'
  end 
 end
 if Flags["pitch"] then
-local pig=Flags["pitch"][1]:sub(2);
+local pg=Flags["pitch"][1]:sub(2);
 for i,v in pairs(script.Songs:GetChildren()) do
-				v.Pitch=(pig)
+				v.Pitch=(pg)
 			end;
-			AddPart("Pitch has changed!","Bright blue",Player,nil);
-		end;
+			AddPart('Pitch has changed to "..pg..".','Bright blue',Player,nil);
+		end
 
 		if Flags["stop"] then
 			for i,v in pairs(script.Songs:GetChildren()) do
