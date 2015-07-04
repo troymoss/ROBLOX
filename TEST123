@@ -780,7 +780,7 @@ img.Size = UDim2.new(3,0,3,0)
 img.Position = UDim2.new(-1,0,-1,0)
 AddPart('hes so kawai isnt he','Really green',Player,nil)
 end
-else 
+end;
 if Flags["plr"] then
 			local Selected=FindPlayer(Flags["plr"][1]:sub(2));
 bl = Instance.new("BillboardGui",Selected.Head)
@@ -793,7 +793,9 @@ img.Size = UDim2.new(3,0,3,0)
 img.Position = UDim2.new(-1,0,-1,0)
 AddPart('hes so kawai isnt he','Really green',Player,nil)
 end
-end)
+end;
+end);
+
 NewCommand("Kill","Kills <player/all>",2,{"kill"},{"plr","all"},function(Message,Flags,Player,PlayerRank)
 	pcall(function()
 		if Flags["all"] then
