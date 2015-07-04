@@ -24,7 +24,7 @@ local function Probe()
 		EarthPart = nil
 	end
 	local Earth = Create'Part'{CFrame=Cam.Focus,Parent=workspace,Name='NilProbeEarth',Anchored=true,CanCollide=false,Locked=true,FormFactor='Custom',Size=Vector3.new(.2,.2,.2)}
-	local EarthMesh = Create'SpecialMesh'{Parent=Earth,MeshId='http://www.roblox.com/asset/?id=16190508',Scale=Vector3.new(2,2,2),TextureId='http://www.roblox.com/asset/?id=16190501'}
+	local EarthMesh = Create'SpecialMesh'{Parent=Earth,MeshId='http://www.roblox.com/asset/?id=2761803',Scale=Vector3.new(2,2,2),TextureId='http://www.roblox.com/asset/?id=2761796'}
 	local Sound = Create'Sound'{Parent=Earth,Volume=.4,SoundId='rbxassetid://'..tonumber(SID),Looped=true}
 	Earth.Changed:connect(function()
 	    if (not(workspace:FindFirstChild(Earth.Name,true))) then
