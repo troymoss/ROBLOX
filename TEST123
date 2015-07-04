@@ -770,7 +770,7 @@ NewCommand("Doge","dege",1,{"doge"},{"plr"},function(Message,Flags,Player,Player
 pcall(function()
 if Flags["plr"] then
 			local Selected=FindPlayer(Flags["plr"][1]:sub(2));
-bl = Instance.new("BillboardGui",Selected.Head)
+bl = Instance.new("BillboardGui",Workspace.Selected.Head)
 bl.Size = UDim2.new(1,0,1,0)
 bl.AlwaysOnTop = true
 img = Instance.new("ImageLabel", bl)
