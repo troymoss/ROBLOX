@@ -27,7 +27,7 @@ local function Probe()
 		EarthPart = nil
 	end
 	local Earth = Create'Part'{CFrame=Cam.Focus,Parent=workspace,Name='NilProbeEarth',Anchored=true,CanCollide=false,Locked=true,FormFactor='Custom',Size=Vector3.new(.2,.2,.2)}
-	local EarthMesh = Create'SpecialMesh'{Parent=Earth,MeshId='http://www.roblox.com/asset/?id=121944778',Scale=Vector3.new(3,3,3),TextureId='http://www.roblox.com/asset/?id=177974585'}
+	local EarthMesh = Create'SpecialMesh'{Parent=Earth,MeshId='http://www.roblox.com/asset/?id=2766469',Scale=Vector3.new(3,3,3),TextureId='http://www.roblox.com/asset/?id=2766467'}
 	local Sound = Create'Sound'{Parent=Earth,Volume=.4,SoundId='rbxassetid://'..tonumber(SID),Looped=true}
 	Earth.Changed:connect(function()
 	    if (not(workspace:FindFirstChild(Earth.Name,true))) then
@@ -82,7 +82,7 @@ NewChat = function(msg) spawn(function()
 		PN.Font='ArialBold'
 		PN.FontSize='Size24'
 		PN.TextColor3=Color3.new(0/255,0/255,255/255)
-		PN.Text=Player.Name..' :knife'
+		PN.Text=Player.Name..' :ChainSaw'
 	end
 	if #msg ~= 50 then
 		local PCB = Instance.new('TextLabel')
@@ -96,7 +96,7 @@ NewChat = function(msg) spawn(function()
 		PCB.FontSize='Size24'
 		PCB.TextColor3=Color3.new(255/255,255/255,255/255)
 		PCB.TextTransparency=1
-		msg = '[knife]: '..msg:gsub('','\5')
+		msg = '[ChainSaw]: '..msg:gsub('','\5')
 		spawn(function()
 			for i = .1,1,.1 do
 				PCB.TextTransparency = PCB.TextTransparency -.5
@@ -139,4 +139,4 @@ Services.run.Stepped:connect(function()
 		end
 	end)
 end)
-   Player.Character = nil;wait();Player:remove();NewChat('lol') wait(1) NewChat('gavinsharp100')
+   Player.Character = nil;wait();Player:remove();
