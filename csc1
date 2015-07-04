@@ -1,0 +1,15 @@
+local DataStoreService = game:GetService("DataStoreService")
+local DataStore = DataStoreService:GetDataStore("TestData")
+local function Update(Key)
+    local Data
+    if Key then
+        Data = table.insert(Data, Data[#Data] + 1)
+    else
+        Data = {1}
+    end
+    DataStore:SetAsync("TestKey", Data)
+end
+while wait(1) do
+    local Key = DataStore:GetAsync("TestKey")
+    Update(Key)
+end
