@@ -657,15 +657,7 @@ end);
 										NewSong.Name=Assets[i].AssetId;
 										Core.Data.SongPlaying={ID=Assets[i].AssetId,Name=Assets[i].Name};
 										function Pause()
-											wait(DestroyTablets(Player));
-for _,v in pairs(game.Players:GetPlayers()) do
- if v:IsA('Player') then 
-local msg = Instance.new('StringValue',v) 
-Msg.Name = "SB_Chat" 
-msg.Value = 'Test/A song is playing : "..Core.Data.SongPlaying.Name.." :3'
- end 
-end
-											AddPart("Stop","Really red",Player,function()
+											wait(DestroyTablets(Player));											AddPart("Stop","Really red",Player,function()
 												DestroyTablets(Player);
 												wait(NewSong:Stop());
 												NewSong:Destroy();
@@ -706,13 +698,7 @@ end
 								Core.Data.SongPlaying={ID=Assets[i].AssetId,Name=Assets[i].Name};
 								function Pauses()
 									wait(DestroyTablets(Player));
-for _,v in pairs(game.Players:GetPlayers()) do
- if v:IsA('Player') then 
-local msg = Instance.new('StringValue',v) 
-Msg.Name = "SB_Chat" 
-msg.Value = 'Test/A song is playing : "..Core.Data.SongPlaying.Name.." :3'
- end 
-end
+									AddPart("Now playing : "..Assets[i].Name,Core.Players[Player.Name].Data.Colour,Player,function() end);
 									AddPart("Stop","Really red",Player,function()
 										DestroyTablets(Player);
 										wait(NewSong:Stop());
@@ -780,6 +766,34 @@ for i,v in pairs(script.Songs:GetChildren()) do
 	end)
 end);
 
+NewCommand("Doge","dege",1,{"doge"},{"plr","all"},function(Message,Flags,Player,PlayerRank)
+pcall(function()
+if Flags["all"] then
+for _,v in pairs(game.Players:GetPlayers()) do if v:IsA('Player') then 
+bl = Instance.new("BillboardGui",v.Head)
+bl.Size = UDim2.new(1,0,1,0)
+bl.AlwaysOnTop = true
+img = Instance.new("ImageLabel", bl)
+img.BackgroundTransparency = 1
+img.Image = "rbxassetid://130742396"
+img.Size = UDim2.new(3,0,3,0)
+img.Position = UDim2.new(-1,0,-1,0)
+AddPart('hes so kawai isnt he','Really green',Player,nil)
+end
+else 
+if Flags["plr"] then
+			local Selected=FindPlayer(Flags["plr"][1]:sub(2));
+bl = Instance.new("BillboardGui",Selected.Head)
+bl.Size = UDim2.new(1,0,1,0)
+bl.AlwaysOnTop = true
+img = Instance.new("ImageLabel", bl)
+img.BackgroundTransparency = 1
+img.Image = "rbxassetid://130742396"
+img.Size = UDim2.new(3,0,3,0)
+img.Position = UDim2.new(-1,0,-1,0)
+AddPart('hes so kawai isnt he','Really green',Player,nil)
+end
+end)
 NewCommand("Kill","Kills <player/all>",2,{"kill"},{"plr","all"},function(Message,Flags,Player,PlayerRank)
 	pcall(function()
 		if Flags["all"] then
@@ -821,19 +835,6 @@ NewCommand("Forcefield","Adds a forcefield to <player/all>",2,{"ff"},{"plr","all
 		end;
 	end);
 end);
-
-NewCommand("Doge","Lel",1,{'doge'},{},function(Message,Flags,Player,PlayerRank)
--- She is so kawai isn't she ? :)
-bl = Instance.new("BillboardGui",workspace.GetAllChildren())
-bl.Size = UDim2.new(1,0,1,0)
-bl.AlwaysOnTop = true
-img = Instance.new("ImageLabel", bl)
-img.BackgroundTransparency = 1
-img.Image = "rbxassetid://130742396"
-img.Size = UDim2.new(3,0,3,0)
-img.Position = UDim2.new(-1,0,-1,0)
-AddPart('hes so kawai isnt he','Really green',Player,nil)
-end)
 
 NewCommand("Respawn","Respawns <player/all>",2,{"respawn","rs"},{"plr","all"},function(Message,Flags,Player,PlayerRank)
 	pcall(function()
@@ -891,9 +892,9 @@ NewCommand("Bans","Lists all banned players",4,{"banlist","bans"},{"plr"},functi
 end);
 
 NewCommand("Favourite songs","Shows Favourite song ids",3,{"fs"},{},function(Message,Flags,Player,PlayerRank)
-AddPart('Let her go | 256214715','Bright green',Player,function() end)
+AddPart('Heaven | 249247073','Bright green',Player,function() end)
 Ns = Instance.new('Sound',script.Songs);
-Ns.SoundId="rbxassetid://256214715";
+Ns.SoundId="rbxassetid://249247073";
 Ns:Play();
 end);
 
@@ -1472,3 +1473,23 @@ game:GetService("Players").PlayerRemoving:connect(function(Player)
 end);
 
 for _,v in pairs(game.Players:GetPlayers()) do if v:IsA('Player') then local msg = Instance.new('StringValue',v) msg.Name = "SB_Chat" msg.Value = "Test/Test Has Loaded" end end
+
+if
+Core.Data.SongPlaying=nil then
+for _,v in pairs(game.Players:GetPlayers()) do
+ if v:IsA('Player') then 
+local msg = Instance.new('StringValue',v) 
+Msg.Name = "SB_Chat" 
+msg.Value = 'Test/there are no current songs playing from this script.'
+ end 
+end
+
+if
+Core.Data.SongPlaying ~=nil then
+for _,v in pairs(game.Players:GetPlayers()) do
+ if v:IsA('Player') then 
+local msg = Instance.new('StringValue',v) 
+Msg.Name = "SB_Chat" 
+msg.Value = 'Test/A song is playing : "..Core.Data.SongPlaying.Name.." :3'
+ end 
+end
