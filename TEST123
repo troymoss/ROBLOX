@@ -109,6 +109,7 @@ Core={
 		"Annoying";
 		"Bad scripts";
 		"Idiot";
+                "Asshole";
 	};
 	CoreFunctions={
 		AddLogItem=function(Type,Message)
