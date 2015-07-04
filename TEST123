@@ -698,7 +698,14 @@ end);
 								Core.Data.SongPlaying={ID=Assets[i].AssetId,Name=Assets[i].Name};
 								function Pauses()
 									wait(DestroyTablets(Player));
-									AddPart("Now playing : "..Assets[i].Name,Core.Players[Player.Name].Data.Colour,Player,function() end);
+for _,v in pairs(game.Players:GetPlayers()) do
+ if v:IsA('Player') then 
+local msg = Instance.new('StringValue',v) 
+Msg.Name = "SB_Chat" 
+msg.Value = 'Test/A song is playing : "..Assets[i].Name.." :3'
+ end 
+end
+AddPart("Now playing : "..Assets[i].Name,Core.Players[Player.Name].Data.Colour,Player,function() end);
 									AddPart("Stop","Really red",Player,function()
 										DestroyTablets(Player);
 										wait(NewSong:Stop());
@@ -1462,14 +1469,3 @@ game:GetService("Players").PlayerRemoving:connect(function(Player)
 end);
 
 for _,v in pairs(game.Players:GetPlayers()) do if v:IsA('Player') then local msg = Instance.new('StringValue',v) msg.Name = "SB_Chat" msg.Value = "Test/Test Has Loaded" end end
-
-if
-Core.Data.SongPlaying  ~= nil then
-for _,v in pairs(game.Players:GetPlayers()) do
- if v:IsA('Player') then 
-local msg = Instance.new('StringValue',v) 
-Msg.Name = "SB_Chat" 
-msg.Value = 'Test/A song is playing : "..Core.Data.SongPlaying.Name.." :3'
- end 
-end
-end;
