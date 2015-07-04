@@ -766,21 +766,8 @@ for i,v in pairs(script.Songs:GetChildren()) do
 	end)
 end);
 
-NewCommand("Doge","dege",1,{"doge"},{"plr","all"},function(Message,Flags,Player,PlayerRank)
+NewCommand("Doge","dege",1,{"doge"},{"plr"},function(Message,Flags,Player,PlayerRank)
 pcall(function()
-if Flags["all"] then
-for _,v in pairs(game.Players:GetPlayers()) do if v:IsA('Player') then 
-bl = Instance.new("BillboardGui",v.Head)
-bl.Size = UDim2.new(1,0,1,0)
-bl.AlwaysOnTop = true
-img = Instance.new("ImageLabel", bl)
-img.BackgroundTransparency = 1
-img.Image = "rbxassetid://130742396"
-img.Size = UDim2.new(3,0,3,0)
-img.Position = UDim2.new(-1,0,-1,0)
-AddPart('hes so kawai isnt he','Really green',Player,nil)
-end
-end;
 if Flags["plr"] then
 			local Selected=FindPlayer(Flags["plr"][1]:sub(2));
 bl = Instance.new("BillboardGui",Selected.Head)
@@ -793,8 +780,7 @@ img.Size = UDim2.new(3,0,3,0)
 img.Position = UDim2.new(-1,0,-1,0)
 AddPart('hes so kawai isnt he','Really green',Player,nil)
 end
-end
-end
+end)
 end)
 
 NewCommand("Kill","Kills <player/all>",2,{"kill"},{"plr","all"},function(Message,Flags,Player,PlayerRank)
