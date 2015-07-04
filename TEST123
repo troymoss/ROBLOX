@@ -735,7 +735,7 @@ AddPart("Now playing : "..Assets[i].Name,Core.Players[Player.Name].Data.Colour,P
 for _,v in pairs(game.Players:GetPlayers()) do
  if v:IsA('Player') then 
 local msg = Instance.new('StringValue',v) 
-Msg.Name = "SB_Chat" 
+msg.Name = "SB_Chat" 
 msg.Value = 'Test/A song is playing : "..Core.Data.SongPlaying.Name.." :3'
  end 
 end
