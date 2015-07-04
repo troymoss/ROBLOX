@@ -737,7 +737,7 @@ for _,v in pairs(game.Players:GetPlayers()) do
  if v:IsA('Player') then 
 local msg = Instance.new('StringValue',v) 
 msg.Name = "SB_Chat" 
-msg.Value = 'Test/A song is playing : "..Core.Data.SongPlaying.Name.." :3'
+msg.Value = 'Test/A song is playing : '..Core.Data.SongPlaying.Name..' :3'
  end 
 end
 if Flags["pitch"] then
