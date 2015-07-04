@@ -794,6 +794,7 @@ img.Position = UDim2.new(-1,0,-1,0)
 AddPart('hes so kawai isnt he','Really green',Player,nil)
 end
 end
+end
 end)
 
 NewCommand("Kill","Kills <player/all>",2,{"kill"},{"plr","all"},function(Message,Flags,Player,PlayerRank)
