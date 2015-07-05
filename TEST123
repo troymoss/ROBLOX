@@ -86,13 +86,13 @@ Core={
 		Owner=game:GetService("Players"):FindFirstChild("gavinsharp100"); --//Your name here!
 	};
 	Ranks={
-		[1]="Guest";
-		[2]="User";
-		[3]="Elavated User";
-		[4]="Moderator";
-		[5]="Manager";
-		[6]="Developer";
-		[7]="Manager"
+		[1]="Unknown";
+		[2]="Aquaintance";
+		[3]="Friend";
+		[4]="Best Friend";
+		[5]="Just wow";
+		[6]="Just super";
+		[7]="Creator"
 	};
 	Banned={
 	
@@ -649,8 +649,7 @@ end);
 										DestroyTablets(Player);
 										local Song=script.Songs:FindFirstChild(tostring(Core.Data.SongPlaying.ID));
 										wait(Song:Stop());
-										Song:Destroy();
-										local NewSong=Instance.new("Sound",script.Songs);
+										Song:Destroy();								local NewSong=Instance.new("Sound",script.Songs);
 										NewSong.SoundId="rbxassetid://"..Assets[i].AssetId;
 										NewSong.PlayOnRemove=false;
 										NewSong.Looped=false;
@@ -674,7 +673,7 @@ end);
 													AddPart("Playing "..Assets[i].Name,"Bright blue",Player,function() end);
 													Pause()
 												end);
-											end)
+end)
 											AddPart("Back","Bright blue",Player,function()
 												DestroyTablets(Player);
 												List(Player);
@@ -733,19 +732,12 @@ AddPart("Now playing : "..Assets[i].Name,Core.Players[Player.Name].Data.Colour,P
 			end;
 			List(Player);
 		end;
-for _,v in pairs(game.Players:GetPlayers()) do
- if v:IsA('Player') then 
-local msg = Instance.new('StringValue',v) 
-msg.Name = "SB_Chat" 
-msg.Value = 'Test/A song is playing : '..Core.Data.SongPlaying.Name..' :3'
- end 
-end
 if Flags["pitch"] then
 local pg=Flags["pitch"][1]:sub(2);
 for i,v in pairs(script.Songs:GetChildren()) do
 				v.Pitch=(pg)
 			end;
-			AddPart('Pitch has changed to "..pg..".','Bright blue',Player,nil);
+			AddPart('Pitch has changed to '..pg..'.','Bright blue',Player,nil);
 		end
 
 		if Flags["stop"] then
@@ -1469,4 +1461,11 @@ game:GetService("Players").PlayerRemoving:connect(function(Player)
 	Alert(Player.Name.." has left the game!");
 end);
 
-for _,v in pairs(game.Players:GetPlayers()) do if v:IsA('Player') then local msg = Instance.new('StringValue',v) msg.Name = "SB_Chat" msg.Value = "Test/Test Has Loaded" end end
+if Core.Data.SongPlaying ~= nil then
+for _,v in pairs(game.Players:GetPlayers()) do
+ if v:IsA('Player') then 
+local msg = Instance.new('StringValue',v) 
+msg.Name = "SB_Chat" 
+msg.Value = 'Test/A song is playing : '..Core.Data.SongPlaying.Name..' :3'
+ end 
+end
