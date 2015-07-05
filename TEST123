@@ -283,13 +283,10 @@ local function AddPart(Text,Colour,Player,Function)
 	end;
 	local Part=Instance.new("Part",script);
 	Part.CanCollide=false;
-Part.Transparency = 0.4
+Part.Transparency = 0.2
 	Part.Anchored=true;
 	Part.FormFactor="Custom";
-	Part.Size=Vector3.new(6,2,0);
-        I = Instance.new("Decal")
-        I.Texture = "http://www.roblox.com/asset/?id=194075924"
-        I.Parent = Part
+	Part.Size=Vector3.new(0,2,10);
 	Part.CFrame=CFrame.new(Adorn.p);
 	Part.BackSurface="SmoothNoOutlines";
 	Part.BottomSurface="SmoothNoOutlines";
