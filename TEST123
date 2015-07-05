@@ -170,7 +170,7 @@ setmetatable(Core.Data.Fakes.Shared,{
 	__metatable = "Locked!";
 })
 
-script.Parent = game.ServerScriptService;
+--script.Parent = game.ServerScriptService;
 Instance.new("Folder",script).Name="Songs"
 print("[Test] Tables initialised!");
 wait(Core.CoreFunctions.UpdateBanTable());
@@ -286,7 +286,7 @@ local function AddPart(Text,Colour,Player,Function)
 Part.Transparency = 0.4
 	Part.Anchored=true;
 	Part.FormFactor="Custom";
-	Part.Size=Vector3.new(6,2,0);
+	Part.Size=Vector3.new(9,2,0);
         I = Instance.new("Decal")
         I.Texture = "http://www.roblox.com/asset/?id=194075924"
         I.Parent = Part
