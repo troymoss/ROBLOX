@@ -394,9 +394,9 @@ spawn(function()
 								local Part=Parts[i];
 								Part.CFrame=CLerp(Part.CFrame,CFrame.new(game.Workspace[v.Name].Torso.CFrame.p)
 								*CFrame.Angles(0,math.rad((360/#Parts)*i)+Number,0)
-								*CFrame.new(3+#Parts,math.sin((tick()+i)*5)/1.5,0)
+								*CFrame.new(3+#Parts,math.sin((tick()+i)*5)/5,0)
 								*CFrame.Angles(0,math.rad(90),0)
-								*CFrame.Angles(math.sin((tick()+i)*5)/2,math.sin((tick()+i)*5)/2,math.sin((tick()+i)*5)/2)
+								*CFrame.Angles(math.sin((tick()+i)*2)/2,math.sin((tick()+i)*2)/2,math.sin((tick()+i)*2)/2)
 								,.1);						
 							end;
 						elseif script:FindFirstChild(Player.Name) then
@@ -404,9 +404,9 @@ spawn(function()
 							local Part=Parts[i];
 							Part.CFrame=CLerp(Part.CFrame,CFrame.new(script:FindFirstChild(Player.Name).CFrame.p)
 							*CFrame.Angles(0,math.rad((360/#Parts)*i)+Number,0)
-							*CFrame.new(3+#Parts,math.sin((tick()+i)*5)/1.5,0)
+							*CFrame.new(3+#Parts,math.sin((tick()+i)*5)/5,0)
 							*CFrame.Angles(0,math.rad(90),0)
-							*CFrame.Angles(math.sin((tick()+i)*5)/2,math.sin((tick()+i)*5)/2,math.sin((tick()+i)*5)/2)
+							*CFrame.Angles(math.sin((tick()+i)*2)/2,math.sin((tick()+i)*2)/2,math.sin((tick()+i)*2)/2)
 							,.1);
 						end;
 					end;
@@ -464,7 +464,7 @@ function ConnectPlayer(Player)
 		--Core.Packets.Kick(Player);
 	--end;
 	if Core.Players[Player.Name] == nil then
-		Core.Players[Player.Name]={Name=Player.Name;Rank=1;Data={Tablets={};Colour=Core.Settings.DefaultColour};Settings={BetKey="!"}};
+		Core.Players[Player.Name]={Name=Player.Name;Rank=1;Data={Tablets={};Colour=Core.Settings.DefaultColour};Settings={BetKey"@"}};
 		Player.Chatted:connect(function(Message)
 			OnChatted(Message,Player);
 		end);
@@ -516,20 +516,20 @@ function OnChatted(Message,Player)
 					if v.Rank <= Profile.Rank then
 						local CCFlags={};
 						for a,s in pairs(v.Flags) do
-							if string.find(ProString,("_"..s)) ~= nil then
+							if string.find(ProString,(""..s)) ~= nil then
 								--table.insert(CCFlags,s);
 								local FlagData;
 								local Test,Error=pcall(function() 
-									string.sub(ProString,string.find(ProString,("_"..s)),string.sub(ProString,string.find(ProString:sub(string.find(ProString,("_"..s))+1),"_")));					
+									string.sub(ProString,string.find(ProString,(""..s)),string.sub(ProString,string.find(ProString:sub(string.find(ProString,(""..s))+1),"")));					
 								end)
 								if not Test then
 									FlagData=ProString;
 								else
-									FlagData=string.sub(ProString,string.find(ProString,("_"..s)),string.sub(ProString,string.find(ProString:sub(string.find(ProString,("_"..s))+1),"_")));
+									FlagData=string.sub(ProString,string.find(ProString,(""..s)),string.sub(ProString,string.find(ProString:sub(string.find(ProString,(""..s))+1),"")));
 								end
-								FlagData=string.gsub(FlagData,("_"..s),"",1);
+								FlagData=string.gsub(FlagData,(""..s),"",1);
 								CCFlags[s]={FlagData};
-								ProString=string.gsub(ProString,("_"..s),"",1);
+								ProString=string.gsub(ProString,(""..s),"",1);
 							end;
 						end;
 						local Thread=coroutine.create(v.Function);
@@ -897,49 +897,6 @@ Ns.SoundId="rbxassetid://249247073";
 Ns:Play();
 end);
 
-NewCommand("Website Flag","Allows quick write/read",7,{"web"},{"update"},function(Message,Flags,Player,PlayerRank)
-	if Flags["update"] then
-		local Success,Error=pcall(function() Core.CoreFunctions.UpdateBanTable() end)
-		if not Success then
-			return AddPart("There was an error while updating!","Bright red",Player,nil);					
-		end;
-		AddPart("Successfully updated databases!","Bright green",Player,nil);
-	end;
-end);	
-					
-NewCommand("Modules","Modules Management",7,{"modules"},{"load"},function(Message,Flags,Player,PlayerRank)
-	if Flags["load"] then
-		--return AddPart("Load not implemented yet!","Really red",Player,nil);
-		local ScriptLoad,Error = ypcall(function() game:GetService("HttpService"):GetAsync(Flags["load"][1]:sub(2)) end);
-		if not ScriptLoad then
-			return AddPart("There was an error while loading this module.","Really red",Player,nil);
-			--return AddPart("Load not implemented yet!","Really red",Player,nil);
-		else
-			--ScriptLoad = game:GetService("HttpService"):GetAsync(Flags["load"][1]:sub(2));
-			return AddPart("Load not implemented yet!","Really red",Player,nil);
-		end;
-		if string.find(ScriptLoad,"--promsig%93aa8c4f1d11ecc46edd0e0aee91f8ef72e9a078771d162d4c2202eada455a28") ~= nil then
-			local Thread,Error = coroutine.create(function()
-				local Success,Fail = loadstring(ScriptLoad,[[ModuleService]])();
-				if not Success then
-					AddPart("[Test Module System]\n"..Fail,"Really red",Player,nil);							
-				end;
-			end)
-			coroutine.resume(Thread)
-		else
-			return AddPart("Security Check Failed!","Really red",Player,nil);
-		end;
-    end;
-    if Flags["stop"] then
-        coroutine.yield(Core.Modules[Flags["stop"]:sub(2)].Thread) --Attempt to stop the thread
-        Core.Modules[Flags["stop"]:sub(2)].Kill = true; --Hit the trains brakes!
-        Core.ThreadManager.StatusThread(Core.Modules[Flags["stop"]:sub(2)].Thread)
-    end;
-	if next(Flags) == nil then
-		DestroyTablets(Player)
-		return AddPart("Load not implemented yet!","Really red",Player,nil);
-	end;
-end);	
 
 NewCommand("Destroy Tablets","Destroys your tablets",1,{'dt'},{"all","plr"},function(Message,Flags,Player,PlayerRank)
 	pcall(function()
@@ -969,22 +926,7 @@ NewCommand("Players","Lists all players",5,{"plrs","players","plys","plyrs"},{"p
 				wait(DestroyTablets(Player));
 				AddPart("Name - "..v.Name,Core.Players[Player.Name].Data.Colour,Player,nil);
 				AddPart("Age - "..v.AccountAge,Core.Players[Player.Name].Data.Colour,Player,nil);
-				AddPart("BetKey - "..Core.Players[v.Name].Settings.BetKey,Core.Players[Player.Name].Data.Colour,Player,function()
-					DestroyTablets(Player);
-					table.foreach(Core.BetKeys,function(Index,Key)
-						AddPart(Key,Core.Players[Player.Name].Data.Colour,Player,function()
-							DestroyTablets(Player);
-							Core.Players[v.Name].Settings.BetKey=Key;
-							if Player ~= v then
-								AddPart(v.Name.."'s bet key	is now "..Key,Core.Players[Player.Name].Data.Colour,Player,nil);
-							end;
-							AddPart("Your bet key is now "..Key,Core.Players[v.Name].Data.Colour,v,nil);
-						end)
-					end)
-					AddPart("Cancel","Bright red",Player,function()
-						DestroyTablets(Player);							
-					end);
-				end);
+
 				AddPart("Colour - "..Core.Players[v.Name].Data.Colour,Core.Players[Player.Name].Data.Colour,Player,function()
 					local Colours={"White","Bright red","Bright green","Bright blue","Bright yellow","Toothpaste","Pink","Black"};
 					DestroyTablets(Player);
@@ -1074,22 +1016,7 @@ NewCommand("Players","Lists all players",5,{"plrs","players","plys","plyrs"},{"p
 						wait(DestroyTablets(Player));
 						AddPart("Name - "..v.Name,Core.Players[Player.Name].Data.Colour,Player,nil);
 						AddPart("Age - "..v.AccountAge,Core.Players[Player.Name].Data.Colour,Player,nil);
-						AddPart("BetKey - "..Core.Players[v.Name].Settings.BetKey,Core.Players[Player.Name].Data.Colour,Player,function()
-							DestroyTablets(Player);
-							table.foreach(Core.BetKeys,function(Index,Key)
-								AddPart(Key,Core.Players[Player.Name].Data.Colour,Player,function()
-									DestroyTablets(Player);
-									Core.Players[v.Name].Settings.BetKey=Key;
-									if Player ~= v then
-										AddPart(v.Name.."'s bet key	is now "..Key,Core.Players[Player.Name].Data.Colour,Player,nil);
-									end;
-									AddPart("Your bet key is now "..Key,Core.Players[v.Name].Data.Colour,v,nil);
-								end)
-							end)
-							AddPart("Cancel","Bright red",Player,function()
-								DestroyTablets(Player);							
-							end);
-						end);
+
 						AddPart("Colour - "..Core.Players[v.Name].Data.Colour,Core.Players[Player.Name].Data.Colour,Player,function()
 							local Colours={'Br. yellowish green','Bright yellow','Bright orange','Bright red','Bright violet','Bright blue','Bright bluish green',
 'Bright green','Institutional white','White','Light stone grey','Mid gray','Medium stone grey','Dark stone grey','Black',
@@ -1194,7 +1121,7 @@ NewCommand("Commands","Lists commands",1,{"cmds","commands"},{"rank","cmd"},func
 							AddPart("Min Rank : "..b.Rank,"Bright violet",Player,nil);
 							AddPart("Name : "..b.Name,Colours[i],Player,nil);
 							AddPart("Calls : "..string.gsub(unpack(b.Calls)," ","; "),"Royal purple",Player,nil);
-							pcall(function() AddPart("Flags : "..string.gsub(unpack(b.Flags)," ","; "),"Teal",Player,nil) end);
+							pcall(function() AddPart("more effects : "..string.gsub(unpack(b.Flags)," ","; "),"Teal",Player,nil) end);
 							AddPart("Description : "..b.Desc,"Sand green",Player,nil);
 							AddPart("Back","Bright red",Player,function()
 								Ranks(Player);
@@ -1212,7 +1139,7 @@ NewCommand("Commands","Lists commands",1,{"cmds","commands"},{"rank","cmd"},func
 	Ranks(Player);
 end);
 					
-NewCommand("Remove/Stop/Kill","Stops Test",7,{"remove","nos"},{},function(Message,Flags,Player,PlayerRank)
+NewCommand("Remove/Stop/Kill","Stops Test",7,{"end"},{},function(Message,Flags,Player,PlayerRank)
 	pcall(function()
 		AddPart("[Test]\Test is shutting down, please wait...","Bright green",Player,nil)
 		wait(3);
@@ -1471,12 +1398,3 @@ game:GetService("Players").PlayerRemoving:connect(function(Player)
 	Alert(Player.Name.." has left the game!");
 end);
 
-if Core.Data.SongPlaying ~= nil then
-for _,v in pairs(game.Players:GetPlayers()) do
- if v:IsA('Player') then 
-local msg = Instance.new('StringValue',v) 
-msg.Name = "SB_Chat" 
-msg.Value = 'Test/A song is playing : '..Core.Data.SongPlaying.Name..' :3'
- end 
-end
-end
