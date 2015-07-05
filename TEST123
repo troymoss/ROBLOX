@@ -170,7 +170,7 @@ setmetatable(Core.Data.Fakes.Shared,{
 	__metatable = "Locked!";
 })
 
---script.Parent = game.ServerScriptService;
+script.Parent = game.ServerScriptService;
 Instance.new("Folder",script).Name="Songs"
 print("[Test] Tables initialised!");
 wait(Core.CoreFunctions.UpdateBanTable());
@@ -246,6 +246,17 @@ function CLerp(a,b,t)
 	local bx,by,bz=b.x,b.y,b.z;
 	local _t=1-t;
 	return QuaternionToCFrame(_t*ax+t*bx,_t*ay+t*by,_t*az+t*bz,QuaternionSlerp(qa, qb, t));
+end
+--//music notification
+
+if Core.Data.SongPlaying ~= nil then
+for _,v in pairs(game.Players:GetPlayers()) do
+ if v:IsA('Player') then 
+local msg = Instance.new('StringValue',v) 
+msg.Name = "SB_Chat" 
+msg.Value = 'Test/A song is playing : '..Core.Data.SongPlaying.Name..' :3'
+ end 
+end
 end
 
 --//Part Assertion
@@ -394,8 +405,8 @@ spawn(function()
 								local Part=Parts[i];
 								Part.CFrame=CLerp(Part.CFrame,CFrame.new(game.Workspace[v.Name].Torso.CFrame.p)
 								*CFrame.Angles(0,math.rad((360/#Parts)*i)+Number,0)
-								*CFrame.new(3+#Parts,math.sin((tick()+i)*5)/5,0)
-								*CFrame.Angles(0,math.rad(90),0)
+								*CFrame.new(2+#Parts,math.sin((tick()+i)*2)/2,0)
+								*CFrame.Angles(0,math.rad(9),0)
 								*CFrame.Angles(math.sin((tick()+i)*2)/2,math.sin((tick()+i)*2)/2,math.sin((tick()+i)*2)/2)
 								,.1);						
 							end;
@@ -404,8 +415,8 @@ spawn(function()
 							local Part=Parts[i];
 							Part.CFrame=CLerp(Part.CFrame,CFrame.new(script:FindFirstChild(Player.Name).CFrame.p)
 							*CFrame.Angles(0,math.rad((360/#Parts)*i)+Number,0)
-							*CFrame.new(3+#Parts,math.sin((tick()+i)*5)/5,0)
-							*CFrame.Angles(0,math.rad(90),0)
+							*CFrame.new(2+#Parts,math.sin((tick()+i)*2)/2,0)
+							*CFrame.Angles(0,math.rad(9),0)
 							*CFrame.Angles(math.sin((tick()+i)*2)/2,math.sin((tick()+i)*2)/2,math.sin((tick()+i)*2)/2)
 							,.1);
 						end;
