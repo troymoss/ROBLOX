@@ -283,10 +283,13 @@ local function AddPart(Text,Colour,Player,Function)
 	end;
 	local Part=Instance.new("Part",script);
 	Part.CanCollide=false;
-Part.Transparency = 0.2
+Part.Transparency = 0.4
 	Part.Anchored=true;
 	Part.FormFactor="Custom";
-	Part.Size=Vector3.new(0,2,10);
+	Part.Size=Vector3.new(6,2,0);
+        I = Instance.new("Decal")
+        I.Texture = "http://www.roblox.com/asset/?id=194075924"
+        I.Parent = Part
 	Part.CFrame=CFrame.new(Adorn.p);
 	Part.BackSurface="SmoothNoOutlines";
 	Part.BottomSurface="SmoothNoOutlines";
@@ -306,8 +309,8 @@ Part.Transparency = 0.2
 	SelectionFrame.Transparency=0.8;
 	local Light=Instance.new("PointLight",Part);
 	Light.Color=BrickColor.new(Colour).Color;
-	Light.Brightness=100;
-	Light.Range=10;
+	Light.Brightness=1000;
+	Light.Range=100;
 	Light.Shadows=true;
 	Light.Enabled=true;
 	local BillboardGui=Instance.new("BillboardGui",Part);
@@ -338,7 +341,7 @@ Part.Transparency = 0.2
 	end);
 	ClickEvent.MouseHoverLeave:connect(function(PlayerE)
 		if PlayerE.Name==Player.Name then
-			for i=1,4 do
+			for i=1,1 do
 				game:GetService("RunService").Heartbeat:wait()
 				Part.Size=Vector3.new(Part.Size.X-0.1,Part.Size.Y-0.1,Part.Size.Z-0.1);
 			end;
@@ -401,20 +404,20 @@ spawn(function()
 								local Parts=Core.Players[Player.Name].Data.Tablets;
 								local Part=Parts[i];
 								Part.CFrame=CLerp(Part.CFrame,CFrame.new(game.Workspace[v.Name].Torso.CFrame.p)
-								*CFrame.Angles(0,math.rad((1/#Parts)*i)+Number,1)
-								*CFrame.new(1+#Parts,math.sin((tick()+i)*1)/1,1)
-								*CFrame.Angles(1,math.rad(1),1)
-								*CFrame.Angles(math.sin((tick()+i)*1)/1,math.sin((tick()+i)*1)/1,math.sin((tick()+i)*1)/1)
+								*CFrame.Angles(0,math.rad((360/#Parts)*i)+Number,0)
+								*CFrame.new(2+#Parts,math.sin((tick()+i)*2)/2,0)
+								*CFrame.Angles(0,math.rad(9),0)
+								*CFrame.Angles(math.sin((tick()+i)*2)/2,math.sin((tick()+i)*2)/2,math.sin((tick()+i)*2)/2)
 								,.1);						
 							end;
 						elseif script:FindFirstChild(Player.Name) then
 							local Parts=Core.Players[Player.Name].Data.Tablets;
 							local Part=Parts[i];
 							Part.CFrame=CLerp(Part.CFrame,CFrame.new(script:FindFirstChild(Player.Name).CFrame.p)
-							*CFrame.Angles(1,math.rad((1/#Parts)*i)+Number,1)
-							*CFrame.new(1+#Parts,math.sin((tick()+i)*1)/1,1)
-							*CFrame.Angles(1,math.rad(1),1)
-							*CFrame.Angles(math.sin((tick()+i)*1)/1,math.sin((tick()+i)*1)/1,math.sin((tick()+i)*1)/1)
+							*CFrame.Angles(0,math.rad((360/#Parts)*i)+Number,0)
+							*CFrame.new(2+#Parts,math.sin((tick()+i)*2)/2,0)
+							*CFrame.Angles(0,math.rad(9),0)
+							*CFrame.Angles(math.sin((tick()+i)*2)/2,math.sin((tick()+i)*2)/2,math.sin((tick()+i)*2)/2)
 							,.1);
 						end;
 					end;
@@ -1405,4 +1408,3 @@ game:GetService("Players").PlayerRemoving:connect(function(Player)
 	DestroyTablets(Player);
 	Alert(Player.Name.." has left the game!");
 end);
-
