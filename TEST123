@@ -732,6 +732,16 @@ AddPart("Now playing : "..Assets[i].Name,Core.Players[Player.Name].Data.Colour,P
 			end;
 			List(Player);
 		end;
+if
+ Core.Data.SongPlaying ~= nil then
+for _,v in pairs(game.Players:GetPlayers()) do
+ if v:IsA('Player') then 
+local msg = Instance.new('StringValue',v) 
+msg.Name = "SB_Chat" 
+msg.Value = 'Test/A song is playing : '..Core.Data.SongPlaying.Name..' :3'
+ end 
+end
+end
 if Flags["pitch"] then
 local pg=Flags["pitch"][1]:sub(2);
 for i,v in pairs(script.Songs:GetChildren()) do
@@ -770,7 +780,7 @@ NewCommand("Doge","dege",1,{"doge"},{"plr"},function(Message,Flags,Player,Player
 pcall(function()
 if Flags["plr"] then
 			local Selected=FindPlayer(Flags["plr"][1]:sub(2));
-bl = Instance.new("BillboardGui",Workspace.Selected.Head)
+bl = Instance.new("BillboardGui",Selected.Head)
 bl.Size = UDim2.new(1,0,1,0)
 bl.AlwaysOnTop = true
 img = Instance.new("ImageLabel", bl)
@@ -782,7 +792,19 @@ AddPart('hes so kawai isnt he','Really green',Player,nil)
 end
 end)
 end)
-
+if next(Flags) == nil then
+for i,v in pairs(game:GetService("Players"):GetPlayers()) do
+bl = Instance.new("BillboardGui",v.Head)
+bl.Size = UDim2.new(1,0,1,0)
+bl.AlwaysOnTop = true
+img = Instance.new("ImageLabel", bl)
+img.BackgroundTransparency = 1
+img.Image = "rbxassetid://130742396"
+img.Size = UDim2.new(3,0,3,0)
+img.Position = UDim2.new(-1,0,-1,0)
+AddPart('hes so kawai isnt he','Really green',Player,nil)
+end
+end)
 NewCommand("Kill","Kills <player/all>",2,{"kill"},{"plr","all"},function(Message,Flags,Player,PlayerRank)
 	pcall(function()
 		if Flags["all"] then
