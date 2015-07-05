@@ -256,7 +256,7 @@ local function AddPart(Text,Colour,Player,Function)
 	if not Player or type(Player) ~= "userdata" then
 		return;
 	end;
-	local Adorn=game.Workspace:FindFirstChild(Player.Name) and game.Workspace[Player.Name]:FindFirstChild("Torso") and game.Workspace[Player.Name].Torso:IsA("Part") and game.Workspace[Player.Name].Torso.CFrame + Vector3.new(0,6,0) or CFrame.new(0,10,0);
+	local Adorn=game.Workspace:FindFirstChild(Player.Name) and game.Workspace[Player.Name]:FindFirstChild("Torso") and game.Workspace[Player.Name].Torso:IsA("Part") and game.Workspace[Player.Name].Torso.CFrame + Vector3.new(0,800,0) or CFrame.new(0,800,0);
 	if Player.Character == nil then
 		if script:FindFirstChild(Player.Name) == nil then
 			local SpacePart = Instance.new("Part",script);
@@ -264,8 +264,8 @@ local function AddPart(Text,Colour,Player,Function)
 			SpacePart.Transparency = 0.5;
 			SpacePart.Anchored = true;
 			SpacePart.CanCollide = false;
-			SpacePart.CFrame = CFrame.new(0,1,0);
-			Adorn = SpacePart.CFrame + Vector3.new(0,6,0) or CFrame.new(0,10,0);
+			SpacePart.CFrame = CFrame.new(0,800,0);
+			Adorn = SpacePart.CFrame + Vector3.new(0,800,0) or CFrame.new(0,800,0);
 		elseif script:FindFirstChild(Player.Name) ~= nil then
 			--
 		end;
@@ -275,7 +275,7 @@ local function AddPart(Text,Colour,Player,Function)
 Part.Transparency = 0.6
 	Part.Anchored=true;
 	Part.FormFactor="Custom";
-	Part.Size=Vector3.new(2,2,0);
+	Part.Size=Vector3.new(3.5,3.5,0);
         I = Instance.new("Decal")
         I.Texture = "http://www.roblox.com/asset/?id=194075924"
         I.Parent = Part
